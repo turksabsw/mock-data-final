@@ -1,0 +1,43 @@
+{
+  "sourceType": "manual",
+  "model": "opus",
+  "thinkingLevel": "high",
+  "isAutoProfile": false,
+  "phaseModels": {
+    "spec": "opus",
+    "planning": "opus",
+    "coding": "opus",
+    "qa": "opus"
+  },
+  "phaseThinking": {
+    "spec": "high",
+    "planning": "high",
+    "coding": "high",
+    "qa": "high"
+  },
+  "referencedFiles": [
+    {
+      "id": "a48032f2-adb1-4910-86bb-6a8d8034b696",
+      "path": "yol_haritasi.md",
+      "name": "yol_haritasi.md",
+      "isDirectory": false,
+      "addedAt": "2026-02-26T07:12:50.175Z"
+    },
+    {
+      "id": "ac286a33-39d1-4df8-9267-04d5598c1738",
+      "path": "VISE_OS_VFS_Camoufox_Arastirma_Raporu_TR_macOS.md",
+      "name": "VISE_OS_VFS_Camoufox_Arastirma_Raporu_TR_macOS.md",
+      "isDirectory": false,
+      "addedAt": "2026-02-26T07:12:50.175Z"
+    },
+    {
+      "id": "b407b773-99fa-4f6e-a3e2-332e307afea5",
+      "path": "atonota.com",
+      "name": "atonota.com",
+      "isDirectory": false,
+      "addedAt": "2026-02-26T07:12:50.175Z"
+    }
+  ],
+  "baseBranch": "master",
+  "fastMode": false
+}

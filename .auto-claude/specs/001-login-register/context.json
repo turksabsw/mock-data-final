@@ -1,0 +1,89 @@
+{
+  "task_description": "VISE OS — Greenfield Python CLI bot for automated VFS Global visa portal registration and login. Uses Camoufox (Firefox fork) via Juggler protocol for anti-bot evasion. Supports 8 active VFS countries with per-country config. MVP targets: aut, hrv, che.",
+  "scoped_services": ["vise-os-bot"],
+  "files_to_modify": {},
+  "files_to_create": {
+    "step_1_skeleton": [
+      ".env",
+      ".env.example",
+      ".gitignore",
+      "requirements.txt",
+      "config/countries.json",
+      "config/proxy_list.json",
+      "config/selectors/vfs_ita.json",
+      "config/selectors/vfs_nld.json",
+      "config/selectors/vfs_aut.json",
+      "config/selectors/vfs_che.json",
+      "config/selectors/vfs_bel.json",
+      "config/selectors/vfs_hrv.json",
+      "config/selectors/vfs_cze.json",
+      "config/selectors/vfs_irl.json"
+    ],
+    "step_2_platform": [
+      "src/__init__.py",
+      "src/platform_config.py"
+    ],
+    "step_3_country": [
+      "src/country_manager.py"
+    ],
+    "step_4_utils": [
+      "src/utils.py"
+    ],
+    "step_5_browser": [
+      "src/browser.py"
+    ],
+    "step_6_otp": [
+      "src/otp_reader.py"
+    ],
+    "step_7_captcha": [
+      "src/captcha_solver.py"
+    ],
+    "step_8_register": [
+      "src/register.py"
+    ],
+    "step_9_login": [
+      "src/login.py"
+    ],
+    "step_10_cli": [
+      "main.py"
+    ],
+    "step_11_tests": [
+      "tests/__init__.py",
+      "tests/test_platform_detection.py",
+      "tests/test_country_manager.py",
+      "tests/test_camoufox_health.py",
+      "tests/test_register_e2e.py",
+      "tests/test_login_e2e.py"
+    ]
+  },
+  "files_to_reference": [],
+  "patterns": {
+    "naming_convention": "Turkish function/variable names (e.g., platform_ayarlari_al, ulke_al, insan_gibi_yaz) as specified in master prompt",
+    "error_handling": "Every function: log() at start, try/except with log() + screenshot_al() on failure, always re-raise",
+    "selector_strategy": "3-tier fallback from config/selectors/ JSON files. NEVER hardcode selectors in Python code",
+    "human_behavior": "click() before type(), random.uniform() delays, character-by-character typing with 50-150ms per keystroke",
+    "browser_pattern": "NewBrowser + sync_playwright() for persistent sessions (cookie reuse). Camoufox() context manager for non-persistent test sessions only",
+    "config_driven": "All sensitive values from .env via python-dotenv. All country/selector data from JSON config files. Zero hardcoded paths, URLs, or credentials",
+    "platform_detection": "platform_ayarlari_al() centralizes all OS-specific logic. .env overrides checked before platform defaults",
+    "fingerprint_rotation": "parmak_izi_os_sec() called fresh every session with weighted random: Windows 75%, macOS 17%, Linux 8%"
+  },
+  "existing_implementations": {
+    "description": "Greenfield project — no existing code. All patterns defined in spec.md/master_prompt.md with complete code templates.",
+    "relevant_files": [
+      "master_prompt.md",
+      "VISE_OS_VFS_Camoufox_Arastirma_Raporu_TR_macOS.md",
+      "yol_haritasi.md"
+    ]
+  },
+  "critical_constraints": {
+    "browser": "Camoufox ONLY — never standard Playwright/Chromium. Juggler protocol, NOT CDP",
+    "headless": "NEVER headless=True. Use headless=False (macOS/Windows) or headless='virtual' (Linux/Xvfb)",
+    "persistence": "persistent_context=True requires user_data_dir — will crash without it",
+    "mandatory_flags": "humanize=True, disable_coop=True (Turnstile iframe), geoip=True",
+    "imap_library": "imap-tools (NOT raw imaplib). Use MailBox with IDLE mode for real-time OTP",
+    "camoufox_fetch": "camoufox fetch MUST be run post-install to download browser binary",
+    "dependencies": "Do NOT list playwright or browserforge — auto-installed by Camoufox"
+  },
+  "created_at": "2026-02-26T10:20:23.505364",
+  "updated_at": "2026-02-26T10:45:00.000000"
+}

@@ -1,0 +1,65 @@
+{
+  "project_root": "/home/ali/Masaüstü/PSS",
+  "project_type": "single",
+  "services": {
+    "vise-os-bot": {
+      "path": ".",
+      "tech_stack": ["python3.11+", "camoufox", "playwright-juggler", "imap-tools", "capsolver", "python-dotenv"],
+      "port": null,
+      "dev_command": "python main.py test --country aut",
+      "test_command": "python -m pytest tests/ -v",
+      "entry_point": "main.py",
+      "type": "cli-bot"
+    }
+  },
+  "infrastructure": {
+    "docker": false,
+    "database": null,
+    "ci_cd": false,
+    "external_services": [
+      {
+        "name": "VFS Global",
+        "type": "target-website",
+        "url_pattern": "https://visa.vfsglobal.com/tur/en/{country_code}/{page}"
+      },
+      {
+        "name": "Mailcow IMAP",
+        "type": "email-server",
+        "host": "mail.atonota.com",
+        "port": 993,
+        "protocol": "IMAP-SSL"
+      },
+      {
+        "name": "CapSolver API",
+        "type": "captcha-service",
+        "url": "https://api.capsolver.com",
+        "optional": true
+      }
+    ]
+  },
+  "conventions": {
+    "language": "python",
+    "naming": "turkish-function-names",
+    "linter": null,
+    "formatter": null,
+    "testing": "pytest",
+    "config_format": "json+dotenv",
+    "patterns": {
+      "error_handling": "log + screenshot on every error, re-raise always",
+      "selectors": "3-tier fallback (primary -> fallback_1 -> fallback_2) from JSON config",
+      "human_behavior": "random delays, character-by-character typing, click-before-type",
+      "browser_launch": "NewBrowser (persistent) or Camoufox context manager (non-persistent)",
+      "platform_detection": "platform_ayarlari_al() for all OS-specific logic"
+    }
+  },
+  "dependency_locations": [
+    "requirements.txt"
+  ],
+  "file_structure": {
+    "source": "src/",
+    "config": "config/",
+    "tests": "tests/",
+    "debug": "debug/",
+    "selectors": "config/selectors/"
+  }
+}
