@@ -1,0 +1,84 @@
+{
+    "_meta": {
+        "ulke": "Avusturya",
+        "ulke_kodu": "aut",
+        "provider": "vfs",
+        "notlar": "Real selectors extracted from VFS Austria site on 2026-02-26. Checkbox selectors updated to target visible mat-checkbox parents."
+    },
+    "register": {
+        "email": {
+            "primary": "input#inputEmail",
+            "fallback_1": "input[type='text'][placeholder*='email']",
+            "fallback_2": "input[placeholder='jane.doe@email.com']",
+            "hint": "Email text input on registration form"
+        },
+        "password": {
+            "primary": "input#password",
+            "fallback_1": "input[type='password']:first-of-type",
+            "fallback_2": "input[type='password'][placeholder='**********']:first-of-type",
+            "hint": "Password input on registration form"
+        },
+        "password_confirm": {
+            "primary": "input#confirmPassword",
+            "fallback_1": "input[type='password']:nth-of-type(2)",
+            "fallback_2": "input[type='password'][placeholder='**********']:nth-of-type(2)",
+            "hint": "Confirm password input on registration form"
+        },
+        "mobile_number": {
+            "primary": "input#mat-input-3",
+            "fallback_1": "input[formcontrolname='mobileNo']",
+            "fallback_2": "input.mat-mdc-input-element:not(#inputEmail)",
+            "hint": "Mobile number text input on registration form"
+        },
+        "terms_checkbox_1": {
+            "primary": "mat-checkbox:nth-of-type(1)",
+            "fallback_1": "mat-checkbox:first-of-type",
+            "fallback_2": "input#mat-mdc-checkbox-0-input",
+            "hint": "First checkbox — click mat-checkbox parent, not hidden input"
+        },
+        "terms_checkbox_2": {
+            "primary": "mat-checkbox:nth-of-type(2)",
+            "fallback_1": ".mat-mdc-checkbox:nth-of-type(2)",
+            "fallback_2": "input#mat-mdc-checkbox-1-input",
+            "hint": "Second checkbox — click mat-checkbox parent, not hidden input"
+        },
+        "terms_checkbox_3": {
+            "primary": "mat-checkbox:nth-of-type(3)",
+            "fallback_1": ".mat-mdc-checkbox:nth-of-type(3)",
+            "fallback_2": "input#mat-mdc-checkbox-2-input",
+            "hint": "Third checkbox — click mat-checkbox parent, not hidden input"
+        },
+        "submit_button": {
+            "primary": "button#trigger",
+            "fallback_1": "button[type='submit']:has-text('Register')",
+            "fallback_2": "button.btn-brand-orange[type='submit']",
+            "hint": "Registration form submit button"
+        }
+    },
+    "login": {
+        "email": {
+            "primary": "input#inputEmail",
+            "fallback_1": "input[type='email']",
+            "fallback_2": "input[type='text'][placeholder*='email']",
+            "hint": "Email input on login form"
+        },
+        "password": {
+            "primary": "input#password",
+            "fallback_1": "input[type='password']",
+            "fallback_2": "input[placeholder='**********']",
+            "hint": "Password input on login form"
+        },
+        "submit_button": {
+            "primary": "button[type='submit']",
+            "fallback_1": "button.btn-brand-orange",
+            "fallback_2": "button.btn:has-text('Login')",
+            "hint": "Login form submit button"
+        },
+        "otp_field": {
+            "primary": "input[type='text'][placeholder*='code']",
+            "fallback_1": "input[type='text'][placeholder*='OTP']",
+            "fallback_2": "input.mat-mdc-input-element:not(#inputEmail):not(#password)",
+            "hint": "OTP verification code input field"
+        }
+    }
+}

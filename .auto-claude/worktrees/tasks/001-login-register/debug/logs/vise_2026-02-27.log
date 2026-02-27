@@ -1,0 +1,1222 @@
+[2026-02-27 09:42:10.111] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 09:42:10.111] ============================================================
+[2026-02-27 09:42:10.111] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 09:42:10.111] ============================================================
+[2026-02-27 09:42:10.111] [SISTEM] Aksiyon: register
+[2026-02-27 09:42:10.111] [SISTEM] Ulke: aut
+[2026-02-27 09:42:10.111] [SISTEM] Platform: Linux
+[2026-02-27 09:42:10.111] [SISTEM] Headless: False
+[2026-02-27 09:42:10.111] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 09:42:10.111] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 09:42:10.111] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 09:42:10.111] ============================================================
+[2026-02-27 09:42:10.580] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 09:42:10.580] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 09:42:10.580] [REGISTER] Adim 1: Ulke dogrulama ve kimlik bilgileri yukleme
+[2026-02-27 09:42:10.580] [REGISTER] Ulke dogrulandi: Austria (aut)
+[2026-02-27 09:42:10.580] [REGISTER] Kimlik bilgileri yuklendi: email=test2001@atonota.com
+[2026-02-27 09:42:10.580] [REGISTER] Adim 2: Tarayici baslatiliyor
+[2026-02-27 09:42:10.580] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 09:42:10.580] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 09:42:10.580] [BROWSER] Config: headless=False, os=macos, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 09:42:12.542] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 09:42:12.542] [REGISTER] Tarayici baslatildi
+[2026-02-27 09:42:12.542] [REGISTER] Adim 3: Kayit sayfasina gidiliyor
+[2026-02-27 09:42:12.542] [REGISTER] Kayit URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 09:42:12.542] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 09:42:13.148] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=304)
+[2026-02-27 09:42:14.717] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_094214_register_page_loaded.png
+[2026-02-27 09:42:14.717] [REGISTER] Adim 4: Cloudflare ve CAPTCHA kontrolu
+[2026-02-27 09:42:14.762] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803643765
+[2026-02-27 09:42:14.763] [REGISTER] cf_clearance mevcut — Cloudflare challenge atlandi
+[2026-02-27 09:42:14.763] [CAPTCHA] UYARI: CAPSOLVER_API_KEY .env'de tanimli degil — yalnizca frame bypass denenecek
+[2026-02-27 09:42:14.763] [CAPTCHA] CapSolver SDK mevcut
+[2026-02-27 09:42:14.763] [REGISTER_CAPTCHA] Starting...
+[2026-02-27 09:42:14.763] [CAPTCHA] CAPTCHA cozme akisi baslatiliyor (ulke=aut)
+[2026-02-27 09:42:14.763] [CAPTCHA] CAPTCHA tipi algilama baslatiliyor...
+[2026-02-27 09:42:15.156] [CAPTCHA] Sayfada CAPTCHA algilanamadi
+[2026-02-27 09:42:15.157] [CAPTCHA] CAPTCHA yok — devam ediliyor
+[2026-02-27 09:42:15.157] [REGISTER_CAPTCHA] OK
+[2026-02-27 09:42:15.157] [REGISTER] Adim 4.5: Cookie modal kapatma
+[2026-02-27 09:42:15.157] [REGISTER] Cookie modal kontrolu yapiliyor...
+[2026-02-27 09:42:15.157] [REGISTER] JavaScript ile cookie modal kapatma deneniyor...
+[2026-02-27 09:42:15.161] [REGISTER] JavaScript ile cookie modal temizlendi
+[2026-02-27 09:42:15.785] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_094215_cookie_modal_js_removed.png
+[2026-02-27 09:42:15.785] [REGISTER] Adim 5: Kayit formu dolduruluyor
+[2026-02-27 09:42:15.785] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 09:42:15.785] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 09:42:15.785] [REGISTER] Email alani dolduruluyor...
+[2026-02-27 09:42:15.795] [SELECTOR] email -> primary found
+[2026-02-27 09:42:31.208] [REGISTER] Email alani dolduruldu: test2001@atonota.com
+[2026-02-27 09:42:31.916] [REGISTER] Sifre alani dolduruluyor...
+[2026-02-27 09:42:31.923] [SELECTOR] password -> primary found
+[2026-02-27 09:42:35.361] [REGISTER] Sifre alani dolduruldu
+[2026-02-27 09:42:36.217] [REGISTER] Sifre tekrar alani dolduruluyor...
+[2026-02-27 09:42:36.223] [SELECTOR] password_confirm -> primary found
+[2026-02-27 09:42:39.833] [REGISTER] Sifre tekrar alani dolduruldu
+[2026-02-27 09:42:40.351] [REGISTER] Dial Code dropdown aciliyor...
+[2026-02-27 09:42:40.354] [REGISTER] Dial code mat-select bulundu, tiklaniyor...
+[2026-02-27 09:42:43.291] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_094243_dial_code_dropdown_opened.png
+[2026-02-27 09:42:43.297] [REGISTER] Turkey (+90) secenegi bulundu: mat-option:has-text('Turkey')
+[2026-02-27 09:42:44.556] [REGISTER] Turkey (+90) secildi
+[2026-02-27 09:42:45.203] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_094245_dial_code_turkey_selected.png
+[2026-02-27 09:42:45.203] [REGISTER] Mobil numara alani dolduruluyor...
+[2026-02-27 09:42:45.208] [SELECTOR] mobile_number -> primary found
+[2026-02-27 09:42:49.201] [REGISTER] Mobil numara alani dolduruldu: 5551234567
+[2026-02-27 09:42:50.016] [REGISTER] Checkbox 1 (Kullanim sartlari) tiklaniyor...
+[2026-02-27 09:42:50.021] [SELECTOR] terms_checkbox_1 -> primary found
+[2026-02-27 09:42:52.185] [REGISTER] Checkbox 1 tiklandi
+[2026-02-27 09:42:52.185] [REGISTER] Checkbox 2 tiklaniyor...
+[2026-02-27 09:42:52.190] [SELECTOR] terms_checkbox_2 -> primary found
+[2026-02-27 09:43:22.191] [REGISTER] UYARI: Checkbox 2 tiklanamadi: ElementHandle.click: Timeout 30000ms exceeded.
+Call log:
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+[2026-02-27 09:43:22.191] [REGISTER] Checkbox 3 tiklaniyor...
+[2026-02-27 09:43:22.196] [SELECTOR] terms_checkbox_3 -> primary found
+[2026-02-27 09:43:50.506] [REGISTER] UYARI: Checkbox 3 tiklanamadi: ElementHandle.click: Target page, context or browser has been closed
+Call log:
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+
+[2026-02-27 09:43:50.506] [REGISTER] Cloudflare CAPTCHA kontrolu yapiliyor...
+[2026-02-27 09:43:52.922] [REGISTER] Cloudflare kontrolu hatasi: Locator.count: Target page, context or browser has been closed
+[2026-02-27 09:43:52.923] [SCREENSHOT] HATA: Screenshot alinamadi: TargetClosedError: Page.screenshot: Target page, context or browser has been closed
+[2026-02-27 09:43:52.923] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 09:43:52.923] [REGISTER_FORM_FILL] OK
+[2026-02-27 09:43:52.923] [REGISTER] Adim 6: Form gonderiliyor
+[2026-02-27 09:43:52.923] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 09:43:52.923] [REGISTER] Form gonderiliyor...
+[2026-02-27 09:43:52.923] [REGISTER] Cloudflare ve form validation icin bekleniyor...
+[2026-02-27 09:43:54.374] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 09:43:54.374] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 09:43:54.375] [BROWSER] Sayfa kapatildi
+[2026-02-27 09:43:54.376] [BROWSER] Context kapatildi
+[2026-02-27 09:43:54.384] [BROWSER] Playwright durduruldu
+[2026-02-27 09:43:54.384] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 09:58:50.019] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 09:58:50.019] ============================================================
+[2026-02-27 09:58:50.019] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 09:58:50.019] ============================================================
+[2026-02-27 09:58:50.019] [SISTEM] Aksiyon: register
+[2026-02-27 09:58:50.019] [SISTEM] Ulke: aut
+[2026-02-27 09:58:50.019] [SISTEM] Platform: Linux
+[2026-02-27 09:58:50.019] [SISTEM] Headless: False
+[2026-02-27 09:58:50.019] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 09:58:50.019] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 09:58:50.019] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 09:58:50.019] ============================================================
+[2026-02-27 09:58:50.350] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 09:58:50.350] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 09:58:50.350] [REGISTER] Adim 1: Ulke dogrulama ve kimlik bilgileri yukleme
+[2026-02-27 09:58:50.350] [REGISTER] Ulke dogrulandi: Austria (aut)
+[2026-02-27 09:58:50.350] [REGISTER] Kimlik bilgileri yuklendi: email=test2001@atonota.com
+[2026-02-27 09:58:50.350] [REGISTER] Adim 2: Tarayici baslatiliyor
+[2026-02-27 09:58:50.350] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 09:58:50.350] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 09:58:50.350] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 09:58:52.361] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 09:58:52.361] [REGISTER] Tarayici baslatildi
+[2026-02-27 09:58:52.361] [REGISTER] Adim 3: Kayit sayfasina gidiliyor
+[2026-02-27 09:58:52.361] [REGISTER] Kayit URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 09:58:52.361] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 09:58:52.459] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 09:58:54.244] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095854_register_page_loaded.png
+[2026-02-27 09:58:54.244] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 09:58:54.246] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803710592
+[2026-02-27 09:58:54.246] [REGISTER] cf_clearance mevcut — Cloudflare challenge atlandi
+[2026-02-27 09:58:54.246] [REGISTER] Adim 5: Cookie modal kapatma
+[2026-02-27 09:58:54.246] [REGISTER] Cookie modal kontrolu yapiliyor...
+[2026-02-27 09:58:54.250] [REGISTER] JavaScript ile cookie modal temizlendi
+[2026-02-27 09:58:54.840] [REGISTER] Adim 6: Kayit formu dolduruluyor
+[2026-02-27 09:58:54.840] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 09:58:54.840] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 09:58:54.840] [REGISTER] [1/6] Email alani dolduruluyor...
+[2026-02-27 09:58:54.851] [SELECTOR] email -> primary found
+[2026-02-27 09:59:12.473] [REGISTER] Email dolduruldu: test2001@atonota.com
+[2026-02-27 09:59:13.082] [REGISTER] [2/6] Sifre alani dolduruluyor...
+[2026-02-27 09:59:13.092] [SELECTOR] password -> primary found
+[2026-02-27 09:59:16.936] [REGISTER] Sifre dolduruldu
+[2026-02-27 09:59:17.482] [REGISTER] [3/6] Sifre tekrar alani dolduruluyor...
+[2026-02-27 09:59:17.492] [SELECTOR] password_confirm -> primary found
+[2026-02-27 09:59:21.515] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 09:59:22.911] [REGISTER] [4/6] Dial Code + Mobil numara...
+[2026-02-27 09:59:22.911] [REGISTER] Dial Code dropdown aciliyor...
+[2026-02-27 09:59:25.925] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095925_dial_code_dropdown_opened.png
+[2026-02-27 09:59:27.014] [REGISTER] ✅ Turkey (+90) secildi: mat-option:has-text('Turkey')
+[2026-02-27 09:59:28.677] [SELECTOR] mobile_number -> primary found
+[2026-02-27 09:59:32.147] [REGISTER] Mobil numara dolduruldu: 5551234567
+[2026-02-27 09:59:33.484] [REGISTER] [5/6] Checkbox'lar tiklaniyor...
+[2026-02-27 09:59:35.024] [REGISTER] Checkbox 1 tiklaniyor (JS): #mat-mdc-checkbox-0-input
+[2026-02-27 09:59:35.029] [REGISTER] ✅ Checkbox 1 JS click BASARILI (checked=true)
+[2026-02-27 09:59:36.183] [REGISTER] Checkbox 2 tiklaniyor (JS): #mat-mdc-checkbox-1-input
+[2026-02-27 09:59:36.187] [REGISTER] ✅ Checkbox 2 JS click BASARILI (checked=true)
+[2026-02-27 09:59:37.602] [REGISTER] Checkbox 3 tiklaniyor (JS): #mat-mdc-checkbox-2-input
+[2026-02-27 09:59:37.606] [REGISTER] ✅ Checkbox 3 JS click BASARILI (checked=true)
+[2026-02-27 09:59:38.873] [REGISTER] Checkbox durumlari: CB1=True, CB2=True, CB3=True
+[2026-02-27 09:59:38.873] [REGISTER] [6/6] Cloudflare Turnstile kontrolu...
+[2026-02-27 09:59:38.919] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095938_before_cloudflare_wait.png
+[2026-02-27 09:59:38.927] [REGISTER] Cloudflare Turnstile bulunamadi — atlanıyor
+[2026-02-27 09:59:38.927] [REGISTER] ✅ Form doldurma tamamlandi
+[2026-02-27 09:59:38.972] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095938_form_filled_complete.png
+[2026-02-27 09:59:38.972] [REGISTER_FORM_FILL] OK
+[2026-02-27 09:59:38.972] [REGISTER] Adim 7: Form gonderiliyor
+[2026-02-27 09:59:38.972] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 09:59:38.972] [REGISTER] Form gonderiliyor...
+[2026-02-27 09:59:40.145] [SELECTOR] submit_button -> primary found
+[2026-02-27 09:59:40.145] [REGISTER] Submit butonu bulundu
+[2026-02-27 09:59:40.926] [REGISTER] ⚠️ Submit butonu DISABLED — form tamamlanmamis olabilir
+[2026-02-27 09:59:40.969] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095940_submit_disabled.png
+[2026-02-27 09:59:40.971] [REGISTER] Checkbox durumlari: [{'index': 0, 'checked': True, 'id': 'mat-mdc-checkbox-0-input'}, {'index': 1, 'checked': True, 'id': 'mat-mdc-checkbox-1-input'}, {'index': 2, 'checked': True, 'id': 'mat-mdc-checkbox-2-input'}]
+[2026-02-27 09:59:40.973] [REGISTER] Cloudflare durumu: COZULMEMIS
+[2026-02-27 09:59:40.973] [REGISTER] Cloudflare cozulmemis! Manuel bekleme baslatiliyor...
+[2026-02-27 09:59:40.980] [REGISTER] Cloudflare Turnstile bulunamadi — atlanıyor
+[2026-02-27 09:59:42.572] [REGISTER] Submit butonu simdi: DISABLED
+[2026-02-27 09:59:42.617] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095942_before_submit_click.png
+[2026-02-27 09:59:48.841] [REGISTER] ✅ Submit butonu tiklandi
+[2026-02-27 09:59:48.841] [REGISTER] Sayfa yaniti bekleniyor...
+[2026-02-27 09:59:54.762] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095954_register_after_submit.png
+[2026-02-27 09:59:54.762] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 09:59:54.762] [REGISTER] Adim 8: Hata kontrolu
+[2026-02-27 09:59:54.768] [REGISTER] Adim 9: Email dogrulama kontrolu
+[2026-02-27 09:59:54.768] [REGISTER] Email dogrulama zorunlu degil — kontrol ediliyor
+[2026-02-27 09:59:56.929] [REGISTER] Sayfada dogrulama istegi yok — devam
+[2026-02-27 09:59:56.973] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_095956_register_completed.png
+[2026-02-27 09:59:56.973] [REGISTER] ===== KAYIT AKISI TAMAMLANDI: ulke=aut =====
+[2026-02-27 09:59:56.973] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 09:59:56.973] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 09:59:56.976] [BROWSER] Sayfa kapatildi
+[2026-02-27 09:59:57.090] [BROWSER] Context kapatildi
+[2026-02-27 09:59:57.098] [BROWSER] Playwright durduruldu
+[2026-02-27 09:59:57.098] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 09:59:57.098] [KAYIT] Register akisi tamamlandi — aut
+[2026-02-27 09:59:57.098] [SONUC] register — BASARILI
+[2026-02-27 10:08:24.188] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 10:08:24.188] ============================================================
+[2026-02-27 10:08:24.188] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 10:08:24.188] ============================================================
+[2026-02-27 10:08:24.188] [SISTEM] Aksiyon: register
+[2026-02-27 10:08:24.188] [SISTEM] Ulke: aut
+[2026-02-27 10:08:24.188] [SISTEM] Platform: Linux
+[2026-02-27 10:08:24.188] [SISTEM] Headless: False
+[2026-02-27 10:08:24.188] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 10:08:24.188] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 10:08:24.188] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 10:08:24.188] ============================================================
+[2026-02-27 10:08:24.526] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 10:08:24.526] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 10:08:24.526] [REGISTER] Adim 1: Ulke dogrulama ve kimlik bilgileri yukleme
+[2026-02-27 10:08:24.526] [REGISTER] Ulke dogrulandi: Austria (aut)
+[2026-02-27 10:08:24.526] [REGISTER] Kimlik bilgileri yuklendi: email=test2001@atonota.com
+[2026-02-27 10:08:24.526] [REGISTER] Adim 2: Tarayici baslatiliyor
+[2026-02-27 10:08:24.526] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 10:08:24.526] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 10:08:24.526] [BROWSER] Config: headless=False, os=macos, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 10:08:26.718] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 10:08:26.719] [REGISTER] Tarayici baslatildi
+[2026-02-27 10:08:26.719] [REGISTER] Adim 3: Kayit sayfasina gidiliyor
+[2026-02-27 10:08:26.719] [REGISTER] Kayit URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:08:26.719] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 10:08:26.892] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 10:08:28.035] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_100827_register_page_loaded.png
+[2026-02-27 10:08:28.035] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 10:08:28.037] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803711585
+[2026-02-27 10:08:28.038] [REGISTER] cf_clearance mevcut — Cloudflare challenge atlandi
+[2026-02-27 10:08:28.038] [REGISTER] Adim 5: Cookie modal kapatma
+[2026-02-27 10:08:28.038] [REGISTER] Cookie modal kontrolu yapiliyor...
+[2026-02-27 10:08:28.102] [REGISTER] JavaScript ile cookie modal temizlendi
+[2026-02-27 10:08:28.739] [REGISTER] Adim 6: Kayit formu dolduruluyor
+[2026-02-27 10:08:28.739] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 10:08:28.739] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 10:08:28.739] [REGISTER] [1/7] Email alani dolduruluyor...
+[2026-02-27 10:08:28.785] [SELECTOR] email -> primary found
+[2026-02-27 10:08:44.395] [REGISTER] Email dolduruldu: test2001@atonota.com
+[2026-02-27 10:08:45.376] [REGISTER] [2/7] Sifre alani dolduruluyor...
+[2026-02-27 10:08:45.382] [SELECTOR] password -> primary found
+[2026-02-27 10:08:49.263] [REGISTER] Sifre dolduruldu
+[2026-02-27 10:08:50.580] [REGISTER] [3/7] Sifre tekrar alani dolduruluyor...
+[2026-02-27 10:08:50.586] [SELECTOR] password_confirm -> primary found
+[2026-02-27 10:08:54.041] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 10:08:54.544] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 10:08:54.545] [REGISTER] Dial Code dropdown aciliyor...
+[2026-02-27 10:08:57.627] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_100857_dial_code_dropdown_opened.png
+[2026-02-27 10:08:58.894] [REGISTER] Turkey (+90) secildi: mat-option:has-text('Turkey')
+[2026-02-27 10:09:00.211] [SELECTOR] mobile_number -> primary found
+[2026-02-27 10:09:04.819] [REGISTER] Mobil numara dolduruldu: 5551234567
+[2026-02-27 10:09:05.954] [REGISTER] [5/7] Sayfayi asagi scroll ediyor (checkbox + Turnstile)...
+[2026-02-27 10:09:08.117] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_100908_scrolled_to_bottom.png
+[2026-02-27 10:09:08.117] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 10:09:08.117] [REGISTER] Checkbox 1 tiklaniyor (JS): #mat-mdc-checkbox-0-input
+[2026-02-27 10:09:08.120] [REGISTER] Checkbox 1 JS click BASARILI (checked=true)
+[2026-02-27 10:09:09.346] [REGISTER] Checkbox 2 tiklaniyor (JS): #mat-mdc-checkbox-1-input
+[2026-02-27 10:09:09.350] [REGISTER] Checkbox 2 JS click BASARILI (checked=true)
+[2026-02-27 10:09:10.639] [REGISTER] Checkbox 3 tiklaniyor (JS): #mat-mdc-checkbox-2-input
+[2026-02-27 10:09:10.643] [REGISTER] Checkbox 3 JS click BASARILI (checked=true)
+[2026-02-27 10:09:11.893] [REGISTER] Checkbox durumlari: CB1=True, CB2=True, CB3=True
+[2026-02-27 10:09:11.893] [REGISTER] [7/7] Submit buton aktivasyonu bekleniyor...
+[2026-02-27 10:09:11.893] [REGISTER] (Cloudflare Turnstile cozulunce buton aktif olacak)
+[2026-02-27 10:09:14.679] [REGISTER] Ilk Turnstile taramasi: angular-container token-input-exists token-bos
+[2026-02-27 10:09:14.727] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_100914_before_turnstile_wait.png
+[2026-02-27 10:09:14.731] [REGISTER] Turnstile durum: widget=True, iframe=False, cozuldu=False, detay='angular-container token-input-exists token-bos'
+[2026-02-27 10:09:14.731] ============================================================
+[2026-02-27 10:09:14.731] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 10:09:14.731] [REGISTER] Lutfen tarayici penceresinde Cloudflare captcha'yi cozun!
+[2026-02-27 10:09:14.731] [REGISTER] Maksimum bekleme: 180 saniye
+[2026-02-27 10:09:14.731] ============================================================
+[2026-02-27 10:09:14.778] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_100914_waiting_for_submit_active.png
+[2026-02-27 10:09:29.796] [REGISTER] Bekleniyor... kalan=164sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:09:44.811] [REGISTER] Bekleniyor... kalan=149sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:09:59.827] [REGISTER] Bekleniyor... kalan=134sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:10:14.841] [REGISTER] Bekleniyor... kalan=119sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:10:29.854] [REGISTER] Bekleniyor... kalan=104sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:10:44.868] [REGISTER] Bekleniyor... kalan=89sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:10:59.885] [REGISTER] Bekleniyor... kalan=74sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:11:14.899] [REGISTER] Bekleniyor... kalan=59sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:11:29.913] [REGISTER] Bekleniyor... kalan=44sn | turnstile=angular-container token-input-exists token-bos | submit=DISABLED
+[2026-02-27 10:11:35.917] [REGISTER] SUBMIT BUTONU AKTIF OLDU! (141sn)
+[2026-02-27 10:11:35.974] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_101135_submit_button_enabled.png
+[2026-02-27 10:11:35.974] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 10:11:36.023] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_101135_form_filled_complete.png
+[2026-02-27 10:11:36.023] [REGISTER_FORM_FILL] OK
+[2026-02-27 10:11:36.023] [REGISTER] Adim 7: Form gonderiliyor
+[2026-02-27 10:11:36.023] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 10:11:36.023] [REGISTER] Form gonderiliyor...
+[2026-02-27 10:11:36.029] [SELECTOR] submit_button -> primary found
+[2026-02-27 10:11:36.029] [REGISTER] Submit butonu bulundu
+[2026-02-27 10:11:36.764] [REGISTER] Submit butonu AKTIF — tiklaniyor
+[2026-02-27 10:11:36.811] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_101136_before_submit_click.png
+[2026-02-27 10:11:38.029] [REGISTER] Submit butonu tiklandi
+[2026-02-27 10:11:38.030] [REGISTER] Sayfa yaniti bekleniyor...
+[2026-02-27 10:11:45.631] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_101145_register_after_submit.png
+[2026-02-27 10:11:45.631] [REGISTER] Mevcut URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:11:45.631] [REGISTER] Hala register sayfasinda — hata olabilir
+[2026-02-27 10:11:45.631] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 10:11:45.631] [REGISTER] Adim 8: Hata kontrolu
+[2026-02-27 10:11:45.637] [REGISTER] Adim 9: Email dogrulama kontrolu
+[2026-02-27 10:11:45.637] [REGISTER] Email dogrulama zorunlu degil — kontrol ediliyor
+[2026-02-27 10:11:47.979] [REGISTER] Sayfada dogrulama istegi yok — devam
+[2026-02-27 10:11:48.031] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_101147_register_completed.png
+[2026-02-27 10:11:48.031] [REGISTER] ===== KAYIT AKISI TAMAMLANDI: ulke=aut =====
+[2026-02-27 10:11:48.031] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 10:11:48.031] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 10:11:48.037] [BROWSER] Sayfa kapatildi
+[2026-02-27 10:11:48.160] [BROWSER] Context kapatildi
+[2026-02-27 10:11:48.167] [BROWSER] Playwright durduruldu
+[2026-02-27 10:11:48.167] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 10:11:48.167] [KAYIT] Register akisi tamamlandi — aut
+[2026-02-27 10:11:48.167] [SONUC] register — BASARILI
+[2026-02-27 10:27:06.102] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 10:27:06.102] ============================================================
+[2026-02-27 10:27:06.102] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 10:27:06.102] ============================================================
+[2026-02-27 10:27:06.102] [SISTEM] Aksiyon: register
+[2026-02-27 10:27:06.102] [SISTEM] Ulke: aut
+[2026-02-27 10:27:06.102] [SISTEM] Platform: Linux
+[2026-02-27 10:27:06.102] [SISTEM] Headless: False
+[2026-02-27 10:27:06.102] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 10:27:06.102] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 10:27:06.102] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 10:27:06.102] ============================================================
+[2026-02-27 10:27:06.455] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 10:27:06.455] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 10:27:06.456] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 10:27:06.456] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 10:27:06.456] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:27:06.456] [REGISTER] Adim 2: Tarayici
+[2026-02-27 10:27:06.456] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 10:27:06.487] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 10:27:06.487] [BROWSER] Config: headless=False, os=macos, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 10:27:08.448] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 10:27:08.448] [REGISTER] Tarayici OK
+[2026-02-27 10:27:08.448] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 10:27:08.448] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:27:08.448] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 10:27:08.625] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 10:27:10.352] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102709_page_loaded.png
+[2026-02-27 10:27:10.352] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 10:27:10.397] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803712293
+[2026-02-27 10:27:10.397] [REGISTER] cf_clearance mevcut
+[2026-02-27 10:27:10.397] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 10:27:10.397] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 10:27:10.489] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 10:27:11.269] [REGISTER] Adim 6: Form doldur
+[2026-02-27 10:27:11.269] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 10:27:11.269] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 10:27:11.270] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 10:27:11.282] [SELECTOR] email -> primary found
+[2026-02-27 10:27:27.323] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:27:28.447] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 10:27:28.454] [SELECTOR] password -> primary found
+[2026-02-27 10:27:33.303] [REGISTER] Sifre dolduruldu
+[2026-02-27 10:27:34.602] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 10:27:34.608] [SELECTOR] password_confirm -> primary found
+[2026-02-27 10:27:38.567] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 10:27:40.009] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 10:27:40.009] [REGISTER] Dial Code aciliyor...
+[2026-02-27 10:27:44.101] [REGISTER] Turkey (+90) secildi
+[2026-02-27 10:27:45.865] [SELECTOR] mobile_number -> primary found
+[2026-02-27 10:27:50.076] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 10:27:51.063] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 10:27:52.835] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102752_scrolled_to_bottom.png
+[2026-02-27 10:27:52.835] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 10:27:52.835] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 10:27:52.839] [REGISTER] CB1 JS click OK
+[2026-02-27 10:27:54.129] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 10:27:54.133] [REGISTER] CB2 JS click OK
+[2026-02-27 10:27:55.468] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 10:27:55.472] [REGISTER] CB3 JS click OK
+[2026-02-27 10:27:56.664] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 10:27:56.665] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 10:27:59.445] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:27:59.493] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102759_before_turnstile_wait.png
+[2026-02-27 10:27:59.496] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:27:59.496] ============================================================
+[2026-02-27 10:27:59.496] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 10:27:59.496] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 10:27:59.496] [REGISTER] Max bekleme: 180sn
+[2026-02-27 10:27:59.496] ============================================================
+[2026-02-27 10:27:59.544] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102759_waiting_submit_active.png
+[2026-02-27 10:28:11.555] [REGISTER] SUBMIT AKTIF! (12sn)
+[2026-02-27 10:28:11.602] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102811_submit_enabled.png
+[2026-02-27 10:28:11.602] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 10:28:11.648] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102811_form_filled.png
+[2026-02-27 10:28:11.648] [REGISTER_FORM_FILL] OK
+[2026-02-27 10:28:11.648] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 10:28:11.648] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 10:28:11.648] [REGISTER] Form gonderiliyor...
+[2026-02-27 10:28:11.653] [SELECTOR] submit_button -> primary found
+[2026-02-27 10:28:11.653] [REGISTER] Submit butonu bulundu
+[2026-02-27 10:28:12.202] [REGISTER] Submit butonu AKTIF — tiklaniyor...
+[2026-02-27 10:28:12.253] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102812_before_submit.png
+[2026-02-27 10:28:13.533] [REGISTER] Submit tiklandi!
+[2026-02-27 10:28:13.533] [REGISTER] Yanit bekleniyor (3sn)...
+[2026-02-27 10:28:17.154] [REGISTER] Ilk hizli analiz...
+[2026-02-27 10:28:17.154] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Alerts: []
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:28:17.157] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:28:17.157] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 10:28:17.207] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102817_after_submit_3sn.png
+[2026-02-27 10:28:17.208] [REGISTER] Ilk analiz sonuc: basarili=False, hata=Kayit formu hala gorunur — submit basarisiz olabilir, mesaj=Form hala sayfada
+[2026-02-27 10:28:17.208] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 10:28:17.208] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 10:28:17.208] [REGISTER] KAYIT HATASI: Kayit formu hala gorunur — submit basarisiz olabilir
+[2026-02-27 10:28:17.254] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102817_register_error_detected.png
+[2026-02-27 10:28:17.254] [REGISTER] HATA: Exception: Kayit basarisiz: Kayit formu hala gorunur — submit basarisiz olabilir
+[2026-02-27 10:28:17.301] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_102817_register_critical_error.png
+[2026-02-27 10:28:17.301] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 10:28:17.301] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 10:28:17.305] [BROWSER] Sayfa kapatildi
+[2026-02-27 10:28:17.421] [BROWSER] Context kapatildi
+[2026-02-27 10:28:17.429] [BROWSER] Playwright durduruldu
+[2026-02-27 10:28:17.429] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 10:28:17.429] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Kayit formu hala gorunur — submit basarisiz olabilir
+[2026-02-27 10:28:17.429] [SONUC] register — BASARISIZ
+[2026-02-27 10:32:42.311] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 10:32:42.311] ============================================================
+[2026-02-27 10:32:42.311] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 10:32:42.311] ============================================================
+[2026-02-27 10:32:42.311] [SISTEM] Aksiyon: register
+[2026-02-27 10:32:42.311] [SISTEM] Ulke: aut
+[2026-02-27 10:32:42.311] [SISTEM] Platform: Linux
+[2026-02-27 10:32:42.311] [SISTEM] Headless: False
+[2026-02-27 10:32:42.311] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 10:32:42.311] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 10:32:42.311] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 10:32:42.311] ============================================================
+[2026-02-27 10:32:42.648] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 10:32:42.648] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 10:32:42.648] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 10:32:42.648] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 10:32:42.648] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:32:42.648] [REGISTER] Adim 2: Tarayici
+[2026-02-27 10:32:42.649] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 10:32:42.649] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 10:32:42.649] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 10:32:44.618] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 10:32:44.618] [REGISTER] Tarayici OK
+[2026-02-27 10:32:44.618] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 10:32:44.618] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:32:44.618] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 10:32:44.820] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 10:32:46.006] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103245_page_loaded.png
+[2026-02-27 10:32:46.006] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 10:32:46.008] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803713290
+[2026-02-27 10:32:46.008] [REGISTER] cf_clearance mevcut
+[2026-02-27 10:32:46.008] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 10:32:46.008] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 10:32:46.012] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 10:32:46.526] [REGISTER] Adim 6: Form doldur
+[2026-02-27 10:32:46.526] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 10:32:46.526] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 10:32:46.526] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 10:32:46.538] [SELECTOR] email -> primary found
+[2026-02-27 10:33:01.778] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:33:02.838] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 10:33:02.846] [SELECTOR] password -> primary found
+[2026-02-27 10:33:06.919] [REGISTER] Sifre dolduruldu
+[2026-02-27 10:33:08.400] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 10:33:08.406] [SELECTOR] password_confirm -> primary found
+[2026-02-27 10:33:12.484] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 10:33:13.338] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 10:33:13.338] [REGISTER] Dial Code aciliyor...
+[2026-02-27 10:33:17.844] [REGISTER] Turkey (+90) secildi
+[2026-02-27 10:33:19.661] [SELECTOR] mobile_number -> primary found
+[2026-02-27 10:33:23.183] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 10:33:24.468] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 10:33:26.777] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103326_scrolled_to_bottom.png
+[2026-02-27 10:33:26.777] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 10:33:26.777] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 10:33:28.315] [REGISTER] CB1 Playwright label click OK
+[2026-02-27 10:33:29.244] [REGISTER] CB1 DOGRULANDI (checked=true)
+[2026-02-27 10:33:30.103] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 10:33:31.351] [REGISTER] CB2 Playwright label click OK
+[2026-02-27 10:33:31.865] [REGISTER] CB2 DOGRULANDI (checked=true)
+[2026-02-27 10:33:32.437] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 10:33:33.753] [REGISTER] CB3 Playwright label click OK
+[2026-02-27 10:33:34.646] [REGISTER] CB3 DOGRULANDI (checked=true)
+[2026-02-27 10:33:35.567] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 10:33:35.570] [REGISTER] Angular Form Durumu:
+[2026-02-27 10:33:35.570] [REGISTER]   DOM Checkboxes: [{'id': 'mat-mdc-checkbox-0-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-1-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-2-input', 'checked': True, 'indeterminate': False}]
+[2026-02-27 10:33:35.571] [REGISTER]   Form valid (ng-valid): False
+[2026-02-27 10:33:35.571] [REGISTER]   Form errors: []
+[2026-02-27 10:33:35.571] [REGISTER]   Submit disabled: True
+[2026-02-27 10:33:35.571] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 10:33:37.624] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:33:37.674] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103337_before_turnstile_wait.png
+[2026-02-27 10:33:37.678] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:33:37.678] ============================================================
+[2026-02-27 10:33:37.678] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 10:33:37.678] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 10:33:37.678] [REGISTER] Max bekleme: 180sn
+[2026-02-27 10:33:37.678] ============================================================
+[2026-02-27 10:33:37.726] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103337_waiting_submit_active.png
+[2026-02-27 10:33:43.732] [REGISTER] SUBMIT AKTIF! (6sn)
+[2026-02-27 10:33:43.792] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103343_submit_enabled.png
+[2026-02-27 10:33:43.792] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 10:33:43.842] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103343_form_filled.png
+[2026-02-27 10:33:43.842] [REGISTER_FORM_FILL] OK
+[2026-02-27 10:33:43.842] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 10:33:43.842] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 10:33:43.842] [REGISTER] Form gonderiliyor...
+[2026-02-27 10:33:43.847] [SELECTOR] submit_button -> primary found
+[2026-02-27 10:33:43.847] [REGISTER] Submit butonu bulundu
+[2026-02-27 10:33:44.396] [REGISTER] Submit butonu AKTIF — tiklaniyor...
+[2026-02-27 10:33:44.448] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103344_before_submit.png
+[2026-02-27 10:33:45.726] [REGISTER] Submit tiklandi!
+[2026-02-27 10:33:45.726] [REGISTER] Yanit bekleniyor (3sn)...
+[2026-02-27 10:33:49.089] [REGISTER] Ilk hizli analiz (sadece snackbar/error)...
+[2026-02-27 10:33:49.089] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Alerts: []
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:33:49.093] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:33:49.093] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 10:33:49.146] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103349_after_submit_3sn.png
+[2026-02-27 10:33:49.146] [REGISTER] Sayfa degisimi bekleniyor (15sn)...
+[2026-02-27 10:33:49.146] [REGISTER] Sayfa degisimi bekleniyor...
+[2026-02-27 10:34:04.208] [REGISTER] Sayfa 15sn icerisinde degismedi
+[2026-02-27 10:34:04.208] [REGISTER] Son tam analiz...
+[2026-02-27 10:34:04.208] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Alerts: []
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:34:04.213] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:34:04.213] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 10:34:04.271] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103404_after_submit_final.png
+[2026-02-27 10:34:04.271] [REGISTER] Son analiz: basarili=False, hata=Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir, mesaj='Form hala sayfada — checkbox'lar Angular'a yansimamis olabilir'
+[2026-02-27 10:34:04.271] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 10:34:04.271] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 10:34:04.271] [REGISTER] KAYIT HATASI: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:34:04.321] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103404_register_error_detected.png
+[2026-02-27 10:34:04.321] [REGISTER] HATA: Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:34:04.372] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_103404_register_critical_error.png
+[2026-02-27 10:34:04.372] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 10:34:04.372] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 10:34:04.376] [BROWSER] Sayfa kapatildi
+[2026-02-27 10:34:04.496] [BROWSER] Context kapatildi
+[2026-02-27 10:34:04.507] [BROWSER] Playwright durduruldu
+[2026-02-27 10:34:04.507] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 10:34:04.507] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:34:04.507] [SONUC] register — BASARISIZ
+[2026-02-27 10:40:17.264] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 10:40:17.264] ============================================================
+[2026-02-27 10:40:17.264] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 10:40:17.264] ============================================================
+[2026-02-27 10:40:17.264] [SISTEM] Aksiyon: register
+[2026-02-27 10:40:17.264] [SISTEM] Ulke: aut
+[2026-02-27 10:40:17.264] [SISTEM] Platform: Linux
+[2026-02-27 10:40:17.264] [SISTEM] Headless: False
+[2026-02-27 10:40:17.264] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 10:40:17.264] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 10:40:17.264] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 10:40:17.264] ============================================================
+[2026-02-27 10:40:17.610] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 10:40:17.610] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 10:40:17.610] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 10:40:17.610] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 10:40:17.610] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:40:17.610] [REGISTER] Adim 2: Tarayici
+[2026-02-27 10:40:17.610] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 10:40:17.610] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 10:40:17.610] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 10:40:19.552] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 10:40:19.552] [REGISTER] Tarayici OK
+[2026-02-27 10:40:19.552] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 10:40:19.552] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:40:19.552] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 10:40:19.722] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 10:40:21.899] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104021_page_loaded.png
+[2026-02-27 10:40:21.899] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 10:40:21.900] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803713621
+[2026-02-27 10:40:21.900] [REGISTER] cf_clearance mevcut
+[2026-02-27 10:40:21.900] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 10:40:21.900] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 10:40:21.905] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 10:40:22.569] [REGISTER] Adim 6: Form doldur
+[2026-02-27 10:40:22.569] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 10:40:22.569] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 10:40:22.569] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 10:40:22.581] [SELECTOR] email -> primary found
+[2026-02-27 10:40:40.572] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:40:41.137] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 10:40:41.145] [SELECTOR] password -> primary found
+[2026-02-27 10:40:45.536] [REGISTER] Sifre dolduruldu
+[2026-02-27 10:40:46.762] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 10:40:46.767] [SELECTOR] password_confirm -> primary found
+[2026-02-27 10:40:51.510] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 10:40:52.490] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 10:40:52.490] [REGISTER] Dial Code aciliyor...
+[2026-02-27 10:40:57.139] [REGISTER] Turkey (+90) secildi
+[2026-02-27 10:40:58.542] [SELECTOR] mobile_number -> primary found
+[2026-02-27 10:41:02.795] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 10:41:04.275] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 10:41:06.475] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104106_scrolled_to_bottom.png
+[2026-02-27 10:41:06.475] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 10:41:06.475] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 10:41:07.910] [REGISTER] CB1 Playwright label click OK
+[2026-02-27 10:41:08.590] [REGISTER] CB1 DOGRULANDI (checked=true)
+[2026-02-27 10:41:09.387] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 10:41:10.661] [REGISTER] CB2 Playwright label click OK
+[2026-02-27 10:41:11.604] [REGISTER] CB2 DOGRULANDI (checked=true)
+[2026-02-27 10:41:12.314] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 10:41:13.560] [REGISTER] CB3 Playwright label click OK
+[2026-02-27 10:41:14.184] [REGISTER] CB3 DOGRULANDI (checked=true)
+[2026-02-27 10:41:14.702] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 10:41:14.706] [REGISTER] Angular Form Durumu:
+[2026-02-27 10:41:14.706] [REGISTER]   DOM Checkboxes: [{'id': 'mat-mdc-checkbox-0-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-1-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-2-input', 'checked': True, 'indeterminate': False}]
+[2026-02-27 10:41:14.706] [REGISTER]   Form valid (ng-valid): False
+[2026-02-27 10:41:14.706] [REGISTER]   Form errors: []
+[2026-02-27 10:41:14.706] [REGISTER]   Submit disabled: True
+[2026-02-27 10:41:14.706] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 10:41:16.920] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:41:16.975] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104116_before_turnstile_wait.png
+[2026-02-27 10:41:16.980] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:41:16.980] ============================================================
+[2026-02-27 10:41:16.980] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 10:41:16.980] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 10:41:16.980] [REGISTER] Max bekleme: 180sn
+[2026-02-27 10:41:16.980] ============================================================
+[2026-02-27 10:41:17.031] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104116_waiting_submit_active.png
+[2026-02-27 10:41:23.038] [REGISTER] SUBMIT AKTIF! (6sn)
+[2026-02-27 10:41:23.091] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104123_submit_enabled.png
+[2026-02-27 10:41:23.091] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 10:41:23.150] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104123_form_filled.png
+[2026-02-27 10:41:23.150] [REGISTER_FORM_FILL] OK
+[2026-02-27 10:41:23.150] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 10:41:23.150] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 10:41:23.150] [REGISTER] Form gonderiliyor...
+[2026-02-27 10:41:23.804] [REGISTER] Submit butonu AKTIF
+[2026-02-27 10:41:23.863] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104123_before_submit.png
+[2026-02-27 10:41:23.863] [REGISTER] [SUBMIT-1] Playwright locator click deneniyor...
+[2026-02-27 10:41:25.167] [REGISTER] [SUBMIT-1] Locator click TAMAM
+[2026-02-27 10:41:28.538] [REGISTER] [SUBMIT-1] Sayfa degismedi — strateji 2 deneniyor...
+[2026-02-27 10:41:28.538] [REGISTER] [SUBMIT-2] form.requestSubmit() deneniyor...
+[2026-02-27 10:41:28.558] [REGISTER] [SUBMIT-2] requestSubmit() TAMAM
+[2026-02-27 10:41:31.587] [REGISTER] [SUBMIT-2] Sayfa degisti! Basarili!
+[2026-02-27 10:41:31.587] [REGISTER] Submit sonrasi analiz baslatiyor...
+[2026-02-27 10:41:33.717] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Alerts: ['This account is currently inactive. Please click here to resend the activation email']
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:41:33.722] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:41:33.722] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+This account is currently inactive. Please click here to resend the activation email
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy N
+[2026-02-27 10:41:33.722] [REGISTER] ALERTS: This account is currently inactive. Please click here to resend the activation email
+[2026-02-27 10:41:33.788] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104133_after_submit_ilk.png
+[2026-02-27 10:41:33.788] [REGISTER] Sayfa degisimi bekleniyor (15sn)...
+[2026-02-27 10:41:33.792] [REGISTER] Sayfa degisimi bekleniyor...
+[2026-02-27 10:41:42.834] [REGISTER] Sayfa icerigi degisti! (hash: 023566bf.. -> 3a7a0ee2..)
+[2026-02-27 10:41:42.835] [REGISTER] Sayfa degisti!
+[2026-02-27 10:41:45.478] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Alerts: ['This account is currently inactive. Please click here to resend the activation email']
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:41:45.482] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:41:45.482] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+This account is currently inactive. Please click here to resend the activation email
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy N
+[2026-02-27 10:41:45.482] [REGISTER] ALERTS: This account is currently inactive. Please click here to resend the activation email
+[2026-02-27 10:41:45.550] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104145_after_submit_final.png
+[2026-02-27 10:41:45.550] [REGISTER] Son analiz: basarili=False, hata=Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir, mesaj='Form hala sayfada — checkbox'lar Angular'a yansimamis olabilir'
+[2026-02-27 10:41:45.550] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 10:41:45.550] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 10:41:45.550] [REGISTER] KAYIT HATASI: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:41:45.609] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104145_register_error_detected.png
+[2026-02-27 10:41:45.609] [REGISTER] HATA: Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:41:45.666] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104145_register_critical_error.png
+[2026-02-27 10:41:45.666] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 10:41:45.666] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 10:41:45.670] [BROWSER] Sayfa kapatildi
+[2026-02-27 10:41:45.789] [BROWSER] Context kapatildi
+[2026-02-27 10:41:45.797] [BROWSER] Playwright durduruldu
+[2026-02-27 10:41:45.797] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 10:41:45.797] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:41:45.797] [SONUC] register — BASARISIZ
+[2026-02-27 10:48:39.832] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 10:48:39.832] ============================================================
+[2026-02-27 10:48:39.832] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 10:48:39.832] ============================================================
+[2026-02-27 10:48:39.832] [SISTEM] Aksiyon: register
+[2026-02-27 10:48:39.832] [SISTEM] Ulke: aut
+[2026-02-27 10:48:39.832] [SISTEM] Platform: Linux
+[2026-02-27 10:48:39.832] [SISTEM] Headless: False
+[2026-02-27 10:48:39.832] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 10:48:39.832] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 10:48:39.832] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 10:48:39.832] ============================================================
+[2026-02-27 10:48:40.172] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 10:48:40.172] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 10:48:40.172] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 10:48:40.172] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 10:48:40.172] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:48:40.172] [REGISTER] Adim 2: Tarayici
+[2026-02-27 10:48:40.172] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 10:48:40.173] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 10:48:40.173] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 10:48:42.154] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 10:48:42.155] [REGISTER] Tarayici OK
+[2026-02-27 10:48:42.155] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 10:48:42.155] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:48:42.155] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 10:48:42.271] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 10:48:44.270] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104844_page_loaded.png
+[2026-02-27 10:48:44.270] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 10:48:44.272] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803714102
+[2026-02-27 10:48:44.272] [REGISTER] cf_clearance mevcut
+[2026-02-27 10:48:44.272] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 10:48:44.272] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 10:48:44.276] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 10:48:45.051] [REGISTER] Adim 6: Form doldur
+[2026-02-27 10:48:45.051] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 10:48:45.051] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 10:48:45.051] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 10:48:45.063] [SELECTOR] email -> primary found
+[2026-02-27 10:49:02.685] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 10:49:03.328] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 10:49:03.337] [SELECTOR] password -> primary found
+[2026-02-27 10:49:07.696] [REGISTER] Sifre dolduruldu
+[2026-02-27 10:49:08.525] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 10:49:08.533] [SELECTOR] password_confirm -> primary found
+[2026-02-27 10:49:12.759] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 10:49:13.261] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 10:49:13.261] [REGISTER] Dial Code aciliyor...
+[2026-02-27 10:49:17.421] [REGISTER] Turkey (+90) secildi
+[2026-02-27 10:49:18.956] [SELECTOR] mobile_number -> primary found
+[2026-02-27 10:49:22.722] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 10:49:23.587] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 10:49:25.454] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104925_scrolled_to_bottom.png
+[2026-02-27 10:49:25.454] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 10:49:25.454] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 10:49:27.623] [REGISTER] CB1 Playwright label click OK
+[2026-02-27 10:49:28.185] [REGISTER] CB1 DOGRULANDI (checked=true)
+[2026-02-27 10:49:29.015] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 10:49:30.591] [REGISTER] CB2 Playwright label click OK
+[2026-02-27 10:49:31.291] [REGISTER] CB2 DOGRULANDI (checked=true)
+[2026-02-27 10:49:31.925] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 10:49:33.175] [REGISTER] CB3 Playwright label click OK
+[2026-02-27 10:49:33.947] [REGISTER] CB3 DOGRULANDI (checked=true)
+[2026-02-27 10:49:34.812] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 10:49:34.815] [REGISTER] Angular Form Durumu:
+[2026-02-27 10:49:34.815] [REGISTER]   DOM Checkboxes: [{'id': 'mat-mdc-checkbox-0-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-1-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-2-input', 'checked': True, 'indeterminate': False}]
+[2026-02-27 10:49:34.815] [REGISTER]   Form valid (ng-valid): False
+[2026-02-27 10:49:34.815] [REGISTER]   Form errors: []
+[2026-02-27 10:49:34.815] [REGISTER]   Submit disabled: True
+[2026-02-27 10:49:34.815] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 10:49:37.057] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:49:37.103] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104937_before_turnstile_wait.png
+[2026-02-27 10:49:37.106] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 10:49:37.106] ============================================================
+[2026-02-27 10:49:37.106] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 10:49:37.106] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 10:49:37.106] [REGISTER] Max bekleme: 180sn
+[2026-02-27 10:49:37.106] ============================================================
+[2026-02-27 10:49:37.150] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104937_waiting_submit_active.png
+[2026-02-27 10:49:43.156] [REGISTER] SUBMIT AKTIF! (6sn)
+[2026-02-27 10:49:43.199] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104943_submit_enabled.png
+[2026-02-27 10:49:43.199] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 10:49:43.238] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104943_form_filled.png
+[2026-02-27 10:49:43.238] [REGISTER_FORM_FILL] OK
+[2026-02-27 10:49:43.238] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 10:49:43.238] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 10:49:43.238] [REGISTER] Form gonderiliyor...
+[2026-02-27 10:49:43.879] [REGISTER] Submit butonu AKTIF
+[2026-02-27 10:49:43.881] [REGISTER] Submit oncesi Turnstile: angular-container token-input TOKEN-OK
+[2026-02-27 10:49:43.942] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104943_before_submit.png
+[2026-02-27 10:49:43.942] [REGISTER] Submit tiklaniyor (Playwright locator)...
+[2026-02-27 10:49:45.193] [REGISTER] Click tamam — API yaniti bekleniyor (max 30sn)...
+[2026-02-27 10:49:45.365] [REGISTER] API yaniti: status=200, url=https://vfsglobal-privacy.my.onetrust.com/request/v1/consentreceipts
+[2026-02-27 10:49:45.365] [REGISTER] API basarili yanit!
+[2026-02-27 10:49:45.365] [REGISTER] Sayfa guncellenmesi bekleniyor (5sn)...
+[2026-02-27 10:49:51.977] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Alerts: []
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:49:51.982] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:49:51.982] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 10:49:52.030] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_104951_after_submit_ilk.png
+[2026-02-27 10:49:52.030] [REGISTER] Ek bekleme (10sn)...
+[2026-02-27 10:49:52.034] [REGISTER] Sayfa degisimi bekleniyor...
+[2026-02-27 10:50:02.076] [REGISTER] Sayfa 10sn icerisinde degismedi
+[2026-02-27 10:50:02.076] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Dialog: None
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Alerts: []
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 10:50:02.080] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 10:50:02.080] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 10:50:02.129] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_105002_after_submit_final.png
+[2026-02-27 10:50:02.129] [REGISTER] Son analiz: basarili=False, hata=Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir, mesaj='Form hala sayfada — checkbox'lar Angular'a yansimamis olabilir'
+[2026-02-27 10:50:02.129] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 10:50:02.129] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 10:50:02.129] [REGISTER] KAYIT HATASI: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:50:02.173] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_105002_register_error_detected.png
+[2026-02-27 10:50:02.173] [REGISTER] HATA: Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:50:02.218] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_105002_register_critical_error.png
+[2026-02-27 10:50:02.218] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 10:50:02.218] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 10:50:02.222] [BROWSER] Sayfa kapatildi
+[2026-02-27 10:50:02.349] [BROWSER] Context kapatildi
+[2026-02-27 10:50:02.358] [BROWSER] Playwright durduruldu
+[2026-02-27 10:50:02.358] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 10:50:02.358] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 10:50:02.358] [SONUC] register — BASARISIZ
+[2026-02-27 11:00:09.177] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 11:00:09.177] ============================================================
+[2026-02-27 11:00:09.177] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 11:00:09.177] ============================================================
+[2026-02-27 11:00:09.177] [SISTEM] Aksiyon: register
+[2026-02-27 11:00:09.177] [SISTEM] Ulke: aut
+[2026-02-27 11:00:09.177] [SISTEM] Platform: Linux
+[2026-02-27 11:00:09.177] [SISTEM] Headless: False
+[2026-02-27 11:00:09.177] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 11:00:09.177] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 11:00:09.177] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 11:00:09.177] ============================================================
+[2026-02-27 11:00:09.512] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 11:00:09.512] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 11:00:09.512] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 11:00:09.512] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 11:00:09.512] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 11:00:09.512] [REGISTER] Adim 2: Tarayici
+[2026-02-27 11:00:09.512] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 11:00:09.513] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 11:00:09.513] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 11:00:11.384] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 11:00:11.384] [REGISTER] Tarayici OK
+[2026-02-27 11:00:11.384] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 11:00:11.384] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 11:00:11.384] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 11:00:11.564] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 11:00:12.961] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110012_page_loaded.png
+[2026-02-27 11:00:12.961] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 11:00:12.963] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803714582
+[2026-02-27 11:00:12.963] [REGISTER] cf_clearance mevcut
+[2026-02-27 11:00:12.963] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 11:00:12.963] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 11:00:12.973] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 11:00:13.960] [REGISTER] Adim 6: Form doldur
+[2026-02-27 11:00:13.960] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 11:00:13.960] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 11:00:13.960] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 11:00:13.971] [SELECTOR] email -> primary found
+[2026-02-27 11:00:29.605] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 11:00:30.885] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 11:00:30.892] [SELECTOR] password -> primary found
+[2026-02-27 11:00:34.984] [REGISTER] Sifre dolduruldu
+[2026-02-27 11:00:36.183] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 11:00:36.189] [SELECTOR] password_confirm -> primary found
+[2026-02-27 11:00:40.703] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 11:00:42.008] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 11:00:42.008] [REGISTER] Dial Code aciliyor...
+[2026-02-27 11:00:46.424] [REGISTER] Turkey (+90) secildi
+[2026-02-27 11:00:48.283] [SELECTOR] mobile_number -> primary found
+[2026-02-27 11:00:51.667] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 11:00:52.227] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 11:00:54.190] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110054_scrolled_to_bottom.png
+[2026-02-27 11:00:54.190] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 11:00:54.190] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 11:00:57.561] [REGISTER] CB1: dom_checked=True, angular_valid=True
+[2026-02-27 11:00:57.561] [REGISTER] CB1 BASARILI (mat-checkbox click)
+[2026-02-27 11:00:58.201] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 11:01:00.732] [REGISTER] CB2: dom_checked=True, angular_valid=True
+[2026-02-27 11:01:00.732] [REGISTER] CB2 BASARILI (mat-checkbox click)
+[2026-02-27 11:01:01.581] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 11:01:03.761] [REGISTER] CB3: dom_checked=True, angular_valid=True
+[2026-02-27 11:01:03.762] [REGISTER] CB3 BASARILI (mat-checkbox click)
+[2026-02-27 11:01:04.288] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 11:01:04.291] [REGISTER] Angular Form Durumu:
+[2026-02-27 11:01:04.291] [REGISTER]   DOM Checkboxes: [{'id': 'mat-mdc-checkbox-0-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-1-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-2-input', 'checked': True, 'indeterminate': False}]
+[2026-02-27 11:01:04.291] [REGISTER]   Form valid (ng-valid): False
+[2026-02-27 11:01:04.291] [REGISTER]   Form errors: []
+[2026-02-27 11:01:04.291] [REGISTER]   Submit disabled: True
+[2026-02-27 11:01:04.291] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 11:01:06.876] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 11:01:06.921] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110106_before_turnstile_wait.png
+[2026-02-27 11:01:06.924] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 11:01:06.924] ============================================================
+[2026-02-27 11:01:06.924] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 11:01:06.924] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 11:01:06.924] [REGISTER] Max bekleme: 180sn
+[2026-02-27 11:01:06.924] ============================================================
+[2026-02-27 11:01:06.968] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110106_waiting_submit_active.png
+[2026-02-27 11:01:12.974] [REGISTER] SUBMIT AKTIF! (6sn)
+[2026-02-27 11:01:13.019] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110112_submit_enabled.png
+[2026-02-27 11:01:13.019] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 11:01:13.063] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110113_form_filled.png
+[2026-02-27 11:01:13.063] [REGISTER_FORM_FILL] OK
+[2026-02-27 11:01:13.063] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 11:01:13.063] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 11:01:13.063] [REGISTER] Form gonderiliyor...
+[2026-02-27 11:01:13.947] [REGISTER] Submit butonu AKTIF
+[2026-02-27 11:01:13.948] [REGISTER] Submit oncesi Turnstile: angular-container token-input TOKEN-OK
+[2026-02-27 11:01:14.002] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110113_before_submit.png
+[2026-02-27 11:01:14.002] [REGISTER] Submit tiklaniyor (Playwright locator)...
+[2026-02-27 11:01:15.327] [REGISTER] Click tamam — VFS API yaniti bekleniyor (max 30sn)...
+[2026-02-27 11:01:44.033] [REGISTER] API response beklemesi: TimeoutError: Timeout 30000ms exceeded while waiting for event "response"
+[2026-02-27 11:01:44.033] [REGISTER] API yaniti yakalanamadi — sayfa degisimi kontrol edilecek
+[2026-02-27 11:01:44.033] [REGISTER] Sayfa guncellenmesi bekleniyor (5sn)...
+[2026-02-27 11:01:50.314] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Dialog: None
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Alerts: []
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 11:01:50.319] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 11:01:50.320] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 11:01:50.369] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110150_after_submit_ilk.png
+[2026-02-27 11:01:50.369] [REGISTER] Ek bekleme (10sn)...
+[2026-02-27 11:01:50.372] [REGISTER] Sayfa degisimi bekleniyor...
+[2026-02-27 11:02:00.409] [REGISTER] Sayfa 10sn icerisinde degismedi
+[2026-02-27 11:02:00.409] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Dialog: None
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Alerts: []
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 11:02:00.412] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 11:02:00.412] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy Notice which explains how we use your personal data. 
+By Creating an account, I hereby
+[2026-02-27 11:02:00.459] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110200_after_submit_final.png
+[2026-02-27 11:02:00.459] [REGISTER] Son analiz: basarili=False, hata=Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir, mesaj='Form hala sayfada — checkbox'lar Angular'a yansimamis olabilir'
+[2026-02-27 11:02:00.459] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 11:02:00.459] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 11:02:00.460] [REGISTER] KAYIT HATASI: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 11:02:00.504] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110200_register_error_detected.png
+[2026-02-27 11:02:00.504] [REGISTER] HATA: Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 11:02:00.551] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_110200_register_critical_error.png
+[2026-02-27 11:02:00.551] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 11:02:00.551] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 11:02:00.555] [BROWSER] Sayfa kapatildi
+[2026-02-27 11:02:00.670] [BROWSER] Context kapatildi
+[2026-02-27 11:02:00.679] [BROWSER] Playwright durduruldu
+[2026-02-27 11:02:00.679] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 11:02:00.679] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Kayit formu hala gorunur — submit Angular FormControl'a ulasmamis olabilir
+[2026-02-27 11:02:00.679] [SONUC] register — BASARISIZ
+[2026-02-27 11:15:43.100] [ULKE] Austria (aut) — Provider: vfs
+[2026-02-27 11:15:43.100] ============================================================
+[2026-02-27 11:15:43.100] VISE OS v0.1.0 — Baslatiyor
+[2026-02-27 11:15:43.100] ============================================================
+[2026-02-27 11:15:43.100] [SISTEM] Aksiyon: register
+[2026-02-27 11:15:43.100] [SISTEM] Ulke: aut
+[2026-02-27 11:15:43.100] [SISTEM] Platform: Linux
+[2026-02-27 11:15:43.100] [SISTEM] Headless: False
+[2026-02-27 11:15:43.100] [SISTEM] Xvfb Gerekli: False
+[2026-02-27 11:15:43.100] [SISTEM] Profil Dizini: /home/ali/.config/vise-os/vfs-profile
+[2026-02-27 11:15:43.101] [SISTEM] Debug Dizini: /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug
+[2026-02-27 11:15:43.101] ============================================================
+[2026-02-27 11:15:43.441] [KAYIT] Register akisi baslatiliyor — aut
+[2026-02-27 11:15:43.441] [REGISTER] ===== KAYIT AKISI BASLATILIYOR: ulke=aut =====
+[2026-02-27 11:15:43.441] [REGISTER] Adim 1: Ulke + kimlik
+[2026-02-27 11:15:43.441] [REGISTER] Ulke: Austria (aut)
+[2026-02-27 11:15:43.441] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 11:15:43.441] [REGISTER] Adim 2: Tarayici
+[2026-02-27 11:15:43.441] [BROWSER] Tarayici baslatiliyor: ulke=aut, mod=persistent
+[2026-02-27 11:15:43.441] [BROWSER] UYARI: Profil dizini kilitli olabilir: /home/ali/.config/vise-os/vfs-profile/aut/.parentlock. Baska bir tarayici oturumu acik olabilir.
+[2026-02-27 11:15:43.441] [BROWSER] Config: headless=False, os=windows, geoip=True, humanize=True, disable_coop=True, persistent_context=True, user_data_dir=/home/ali/.config/vise-os/vfs-profile/aut
+[2026-02-27 11:15:45.349] [BROWSER] Tarayici basariyla baslatildi (persistent)
+[2026-02-27 11:15:45.349] [REGISTER] Tarayici OK
+[2026-02-27 11:15:45.349] [REGISTER] Adim 3: Sayfa yukleme
+[2026-02-27 11:15:45.350] [REGISTER] URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 11:15:45.350] [BROWSER] Sayfa aciliyor: https://visa.vfsglobal.com/tur/en/aut/register (wait_until=domcontentloaded)
+[2026-02-27 11:15:45.503] [BROWSER] Sayfa yuklendi: https://visa.vfsglobal.com/tur/en/aut/register (status=200)
+[2026-02-27 11:15:47.349] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111547_page_loaded.png
+[2026-02-27 11:15:47.349] [REGISTER] Adim 4: Cloudflare kontrol
+[2026-02-27 11:15:47.350] [BROWSER] cf_clearance bulundu: domain=.vfsglobal.com, expires=1803715270
+[2026-02-27 11:15:47.350] [REGISTER] cf_clearance mevcut
+[2026-02-27 11:15:47.350] [REGISTER] Adim 5: Cookie modal
+[2026-02-27 11:15:47.351] [REGISTER] Cookie modal kontrolu...
+[2026-02-27 11:15:47.355] [REGISTER] Cookie modal JS ile temizlendi
+[2026-02-27 11:15:48.336] [REGISTER] Adim 6: Form doldur
+[2026-02-27 11:15:48.336] [REGISTER_FORM_FILL] Starting...
+[2026-02-27 11:15:48.336] [REGISTER] Form doldurma baslatiliyor...
+[2026-02-27 11:15:48.337] [REGISTER] [1/7] Email dolduruluyor...
+[2026-02-27 11:15:48.347] [SELECTOR] email -> primary found
+[2026-02-27 11:16:02.997] [REGISTER] Email: test2002@atonota.com
+[2026-02-27 11:16:04.398] [REGISTER] [2/7] Sifre dolduruluyor...
+[2026-02-27 11:16:04.406] [SELECTOR] password -> primary found
+[2026-02-27 11:16:08.627] [REGISTER] Sifre dolduruldu
+[2026-02-27 11:16:09.551] [REGISTER] [3/7] Sifre tekrar dolduruluyor...
+[2026-02-27 11:16:09.557] [SELECTOR] password_confirm -> primary found
+[2026-02-27 11:16:13.697] [REGISTER] Sifre tekrar dolduruldu
+[2026-02-27 11:16:14.455] [REGISTER] [4/7] Dial Code + Mobil numara...
+[2026-02-27 11:16:14.455] [REGISTER] Dial Code aciliyor...
+[2026-02-27 11:16:18.125] [REGISTER] Turkey (+90) secildi
+[2026-02-27 11:16:19.711] [SELECTOR] mobile_number -> primary found
+[2026-02-27 11:16:24.255] [REGISTER] Mobil numara: 5551234567
+[2026-02-27 11:16:25.645] [REGISTER] [5/7] Sayfayi asagi scroll...
+[2026-02-27 11:16:27.257] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111627_scrolled_to_bottom.png
+[2026-02-27 11:16:27.257] [REGISTER] [6/7] Checkbox'lar tiklaniyor...
+[2026-02-27 11:16:27.257] [REGISTER] Checkbox 1 tiklaniyor: #mat-mdc-checkbox-0-input
+[2026-02-27 11:16:30.268] [REGISTER] CB1: dom_checked=True, angular_valid=True
+[2026-02-27 11:16:30.268] [REGISTER] CB1 BASARILI (mat-checkbox click)
+[2026-02-27 11:16:31.090] [REGISTER] Checkbox 2 tiklaniyor: #mat-mdc-checkbox-1-input
+[2026-02-27 11:16:33.765] [REGISTER] CB2: dom_checked=True, angular_valid=True
+[2026-02-27 11:16:33.765] [REGISTER] CB2 BASARILI (mat-checkbox click)
+[2026-02-27 11:16:34.751] [REGISTER] Checkbox 3 tiklaniyor: #mat-mdc-checkbox-2-input
+[2026-02-27 11:16:36.903] [REGISTER] CB3: dom_checked=True, angular_valid=True
+[2026-02-27 11:16:36.903] [REGISTER] CB3 BASARILI (mat-checkbox click)
+[2026-02-27 11:16:37.600] [REGISTER] Checkbox: CB1=True, CB2=True, CB3=True
+[2026-02-27 11:16:37.603] [REGISTER] Angular Form Durumu:
+[2026-02-27 11:16:37.604] [REGISTER]   DOM Checkboxes: [{'id': 'mat-mdc-checkbox-0-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-1-input', 'checked': True, 'indeterminate': False}, {'id': 'mat-mdc-checkbox-2-input', 'checked': True, 'indeterminate': False}]
+[2026-02-27 11:16:37.604] [REGISTER]   Form valid (ng-valid): False
+[2026-02-27 11:16:37.604] [REGISTER]   Form errors: []
+[2026-02-27 11:16:37.604] [REGISTER]   Submit disabled: True
+[2026-02-27 11:16:37.604] [REGISTER] [7/7] Submit aktivasyonu bekleniyor...
+[2026-02-27 11:16:40.283] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 11:16:40.330] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111640_before_turnstile_wait.png
+[2026-02-27 11:16:40.333] [REGISTER] Turnstile: angular-container token-input token-bos
+[2026-02-27 11:16:40.334] ============================================================
+[2026-02-27 11:16:40.334] [REGISTER] CLOUDFLARE TURNSTILE BEKLENIYOR
+[2026-02-27 11:16:40.334] [REGISTER] Tarayicida Cloudflare captcha'yi cozun!
+[2026-02-27 11:16:40.334] [REGISTER] Max bekleme: 180sn
+[2026-02-27 11:16:40.334] ============================================================
+[2026-02-27 11:16:40.379] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111640_waiting_submit_active.png
+[2026-02-27 11:16:43.383] [REGISTER] SUBMIT AKTIF! (3sn)
+[2026-02-27 11:16:43.427] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111643_submit_enabled.png
+[2026-02-27 11:16:43.427] [REGISTER] Form doldurma tamamlandi
+[2026-02-27 11:16:43.468] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111643_form_filled.png
+[2026-02-27 11:16:43.468] [REGISTER_FORM_FILL] OK
+[2026-02-27 11:16:43.468] [REGISTER] Adim 7: Form gonder + analiz
+[2026-02-27 11:16:43.468] [REGISTER_FORM_SUBMIT] Starting...
+[2026-02-27 11:16:43.468] [REGISTER] Form gonderiliyor...
+[2026-02-27 11:16:44.121] [REGISTER] Submit butonu AKTIF
+[2026-02-27 11:16:44.123] [REGISTER] Submit oncesi Turnstile: angular-container token-input TOKEN-OK
+[2026-02-27 11:16:44.173] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111644_before_submit.png
+[2026-02-27 11:16:44.174] [REGISTER] Submit tiklaniyor (main world click)...
+[2026-02-27 11:16:44.177] [REGISTER] Main world click TAMAM
+[2026-02-27 11:16:44.178] [REGISTER] Sayfa guncellenmesi bekleniyor (5sn)...
+[2026-02-27 11:16:49.306] [REGISTER] Submit sonrasi detayli analiz baslatiliyor...
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — URL: https://visa.vfsglobal.com/tur/en/aut/register
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Snackbar: None
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Mat-errors: []
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Dialog: None
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Alerts: ['This account is currently inactive. Please click here to resend the activation email']
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Form gorunur: True
+[2026-02-27 11:16:49.310] [REGISTER] Analiz — Kayit formu var: True
+[2026-02-27 11:16:49.310] [REGISTER] Sayfa icerik (ilk 300): English 
+- Change language to translate
+Create an account
+
+Register with VFS Global to start
+
+This account is currently inactive. Please click here to resend the activation email
+Email*
+Password*
+Confirm Password*
+Mobile Number *
+Dial Code
+90
+Mobile Number without prefix(0)
+Please read our Privacy N
+[2026-02-27 11:16:49.310] [REGISTER] BODY'DE FORM VALIDATION HATASI: 'mandatory field cannot be left blank'
+[2026-02-27 11:16:49.366] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111649_after_submit_ilk.png
+[2026-02-27 11:16:49.366] [REGISTER] Sonuc: basarili=False, hata=Form validation (body): mandatory field cannot be left blank, mesaj=mandatory field cannot be left blank
+[2026-02-27 11:16:49.366] [REGISTER_FORM_SUBMIT] OK
+[2026-02-27 11:16:49.366] [REGISTER] Adim 8: Sonuc degerlendirme
+[2026-02-27 11:16:49.366] [REGISTER] KAYIT HATASI: Form validation (body): mandatory field cannot be left blank
+[2026-02-27 11:16:49.416] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111649_register_error_detected.png
+[2026-02-27 11:16:49.416] [REGISTER] HATA: Exception: Kayit basarisiz: Form validation (body): mandatory field cannot be left blank
+[2026-02-27 11:16:49.462] [SCREENSHOT] /home/ali/Masaüstü/PSS/.auto-claude/worktrees/tasks/001-login-register/debug/screenshots/20260227_111649_register_critical_error.png
+[2026-02-27 11:16:49.462] [REGISTER] Tarayici kapatiliyor...
+[2026-02-27 11:16:49.462] [BROWSER] Tarayici kapatiliyor...
+[2026-02-27 11:16:49.465] [BROWSER] Sayfa kapatildi
+[2026-02-27 11:16:49.574] [BROWSER] Context kapatildi
+[2026-02-27 11:16:49.582] [BROWSER] Playwright durduruldu
+[2026-02-27 11:16:49.582] [BROWSER] Tarayici basariyla kapatildi
+[2026-02-27 11:16:49.582] [KAYIT] Register akisi basarisiz — Exception: Kayit basarisiz: Form validation (body): mandatory field cannot be left blank
+[2026-02-27 11:16:49.582] [SONUC] register — BASARISIZ

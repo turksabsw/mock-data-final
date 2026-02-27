@@ -1,0 +1,529 @@
+{
+  "integrations_researched": [
+    {
+      "name": "Camoufox",
+      "type": "library",
+      "verified_package": {
+        "name": "camoufox",
+        "install_command": "pip install -U camoufox[geoip]",
+        "version": "0.4.11 (latest, released Jan 29 2025)",
+        "python_requires": ">=3.8, <4.0",
+        "verified": true,
+        "post_install": "camoufox fetch  # Downloads the browser binary (REQUIRED after pip install)"
+      },
+      "api_patterns": {
+        "imports": [
+          "from camoufox.sync_api import Camoufox",
+          "from camoufox.async_api import AsyncCamoufox",
+          "from camoufox.utils import launch_options"
+        ],
+        "initialization_sync": "with Camoufox(headless=False, humanize=True, os='windows', geoip=True, disable_coop=True, persistent_context=True, user_data_dir='/path/to/profile') as browser:\n    page = browser.new_page()\n    page.goto('https://example.com')",
+        "initialization_async": "async with AsyncCamoufox(headless=False, humanize=True, geoip=True) as browser:\n    page = await browser.new_page()\n    await page.goto('https://example.com')",
+        "key_parameters": {
+          "headless": "False | True | 'virtual' (virtual = Xvfb for Linux headless servers)",
+          "humanize": "True | float (max duration in seconds, default ~1.5s) — humanized cursor movement",
+          "os": "'windows' | 'macos' | 'linux' | list — fingerprint OS shown to target site",
+          "geoip": "True | 'IP_ADDRESS' — auto-derive timezone/locale from proxy IP",
+          "disable_coop": "True — disables Cross-Origin-Opener-Policy for Turnstile iframe access",
+          "persistent_context": "True — requires user_data_dir, enables cookie persistence (cf_clearance reuse)",
+          "user_data_dir": "str — path to profile directory for persistent context",
+          "proxy": "dict — {server, username, password}",
+          "block_images": "bool — block image loading",
+          "block_webrtc": "bool — block WebRTC",
+          "block_webgl": "bool — block WebGL",
+          "window": "tuple — (width, height) in pixels",
+          "screen": "Screen object from browserforge — constrain screen dimensions",
+          "config": "dict — advanced override for individual fingerprint properties",
+          "addons": "list — paths to extracted Firefox addon folders",
+          "enable_cache": "bool — cache previous pages/requests (disabled by default)",
+          "main_world_eval": "bool — enable main world script injection with 'mw:' prefix",
+          "locale": "str | list — locale(s) for the browser"
+        },
+        "key_functions": [
+          "browser.new_page() — creates new page (Playwright Page object)",
+          "page.goto(url) — navigate to URL",
+          "page.fill(selector, value) — fill input field",
+          "page.click(selector) — click element",
+          "page.wait_for_selector(selector, timeout=ms) — wait for element",
+          "page.locator(selector) — get locator for element",
+          "page.screenshot(path=filepath) — take screenshot",
+          "page.content() — get page HTML content",
+          "page.title() — get page title"
+        ],
+        "verified_against": "Context7 MCP: /daijro/camoufox + https://camoufox.com/python/usage/ + https://pypi.org/project/camoufox/"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [],
+        "dependencies": [
+          "browserforge>=1.2.1 (auto-installed — fingerprint generation)",
+          "playwright (auto-installed — browser automation protocol)",
+          "Xvfb system package on Linux for headless='virtual' mode (apt install xvfb)",
+          "Linux system libs: libgtk-3-0, libx11-xcb1, libasound2 (Debian) or gtk3, libx11, libxcb, cairo, alsa-lib (Arch)"
+        ]
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "system_requirements": {
+          "linux_headless": "sudo apt install -y xvfb libgtk-3-0 libx11-xcb1 libasound2",
+          "browser_binary": "camoufox fetch (must be run after pip install)"
+        }
+      },
+      "gotchas": [
+        "MUST run 'camoufox fetch' after pip install to download the browser binary — without this, nothing works",
+        "persistent_context=True REQUIRES user_data_dir to be set",
+        "disable_coop=True is REQUIRED for clicking Cloudflare Turnstile checkboxes in cross-origin iframes",
+        "headless='virtual' requires Xvfb installed on Linux — use 'apt install xvfb'",
+        "The 'os' parameter is for FINGERPRINT only (shown to target site), NOT the actual runtime OS",
+        "Camoufox uses Juggler protocol (NOT CDP) — this is why it evades anti-bot detection; do NOT use Playwright Chromium",
+        "As of Jan 2026, there has been a maintenance gap — base Firefox version may have fingerprint inconsistencies in v146.0.1-beta.25",
+        "geoip=True with proxy auto-derives timezone/locale; geoip='IP_ADDRESS' allows manual IP specification",
+        "humanize=True uses default ~1.5s duration; can be fine-tuned with float value",
+        "enable_cache is False by default — explicitly enable if needed for performance",
+        "BrowserForge fingerprint injection is deprecated — use Camoufox directly instead"
+      ],
+      "research_sources": [
+        "Context7 MCP: /daijro/camoufox (247 snippets, High reputation)",
+        "https://pypi.org/project/camoufox/ (v0.4.11)",
+        "https://camoufox.com/python/usage/",
+        "https://camoufox.com/python/installation/",
+        "https://camoufox.com/python/virtual-display/",
+        "https://github.com/daijro/camoufox"
+      ]
+    },
+    {
+      "name": "Playwright (Python)",
+      "type": "library",
+      "verified_package": {
+        "name": "playwright",
+        "install_command": "pip install playwright  # BUT: auto-installed as camoufox dependency",
+        "version": "auto-managed by camoufox",
+        "verified": true,
+        "note": "Do NOT install separately or use Playwright directly — always use through Camoufox wrapper"
+      },
+      "api_patterns": {
+        "imports": [
+          "# NOT imported directly — accessed through Camoufox browser/page objects",
+          "# Page API is standard Playwright Firefox API via Juggler protocol"
+        ],
+        "key_functions": [
+          "page.goto(url, **kwargs) — navigate to URL",
+          "page.fill(selector, value) — fill input field",
+          "page.click(selector) — click element",
+          "page.type(selector, text, delay=ms) — type text character by character",
+          "page.wait_for_selector(selector, timeout=ms, state='visible'|'attached'|'hidden') — wait for element",
+          "page.locator(selector) — create locator object",
+          "page.locator(selector).fill(value) — fill via locator",
+          "page.locator(selector).click() — click via locator",
+          "page.locator(selector).wait_for(state='visible') — wait for locator state",
+          "page.get_by_role(role, name=name) — semantic locator",
+          "page.get_by_label(text) — label-based locator",
+          "page.get_by_text(text) — text content locator",
+          "page.screenshot(path=filepath, full_page=bool) — screenshot",
+          "page.content() — get page HTML",
+          "page.url — current page URL",
+          "page.title() — get page title",
+          "page.evaluate(expression) — evaluate JavaScript",
+          "page.wait_for_load_state(state) — wait for 'load'|'domcontentloaded'|'networkidle'",
+          "page.wait_for_url(url_pattern) — wait for navigation to URL",
+          "page.frame_locator(selector) — access iframes"
+        ],
+        "verified_against": "Context7 MCP: /websites/playwright_dev_python (2543 snippets, High reputation)"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "note": "Managed entirely through Camoufox — no separate browser install needed"
+      },
+      "gotchas": [
+        "Do NOT use playwright.chromium or playwright.webkit — ONLY Firefox via Camoufox",
+        "Do NOT install playwright browsers separately — camoufox fetch handles this",
+        "Playwright uses Juggler protocol for Firefox (NOT CDP) — this is the anti-detection advantage",
+        "page.type() with delay parameter enables character-by-character typing for human-like behavior",
+        "page.frame_locator() is essential for interacting with Turnstile iframe content",
+        "wait_for_selector defaults to 'visible' state — explicit state='attached' may be needed for hidden elements"
+      ],
+      "research_sources": [
+        "Context7 MCP: /websites/playwright_dev_python (2543 snippets, High reputation)",
+        "https://playwright.dev/python/docs/pages",
+        "https://playwright.dev/python/docs/locators",
+        "https://playwright.dev/python/docs/api/class-locator"
+      ]
+    },
+    {
+      "name": "python-dotenv",
+      "type": "library",
+      "verified_package": {
+        "name": "python-dotenv",
+        "install_command": "pip install python-dotenv",
+        "version": "latest (v1.2.1 available)",
+        "python_requires": ">=3.8",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": [
+          "from dotenv import load_dotenv",
+          "from dotenv import dotenv_values",
+          "import os"
+        ],
+        "initialization": "load_dotenv()  # Loads .env from current or parent directory\n# Then access with os.getenv('VAR_NAME', 'default_value')",
+        "key_functions": [
+          "load_dotenv() — load .env into os.environ",
+          "load_dotenv(dotenv_path='/path/to/custom.env') — load specific file",
+          "load_dotenv(override=True) — override existing env vars",
+          "load_dotenv(verbose=True) — enable logging",
+          "dotenv_values('.env') — return dict without setting os.environ",
+          "os.getenv('KEY', 'default') — read loaded variable"
+        ],
+        "verified_against": "Context7 MCP: /theskumar/python-dotenv (66 snippets, High reputation, benchmark 87.4)"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [".env"],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false
+      },
+      "gotchas": [
+        "load_dotenv() does NOT override existing environment variables by default — use override=True if needed",
+        "Variable interpolation is enabled by default (${VAR} syntax) — use interpolate=False for literal values",
+        ".env file is searched in current directory and parent directories automatically",
+        "Always use os.getenv() with default values for safety"
+      ],
+      "research_sources": [
+        "Context7 MCP: /theskumar/python-dotenv (v1.2.1)",
+        "https://github.com/theskumar/python-dotenv"
+      ]
+    },
+    {
+      "name": "CapSolver (CAPTCHA Solving)",
+      "type": "service",
+      "verified_package": {
+        "name": "capsolver",
+        "install_command": "pip3 install --upgrade capsolver",
+        "version": "1.0.7 (released Jul 20 2023)",
+        "python_requires": ">=3.6.8",
+        "verified": true
+      },
+      "api_patterns": {
+        "imports": [
+          "import capsolver"
+        ],
+        "initialization": "capsolver.api_key = os.getenv('CAPSOLVER_API_KEY')\n# OR set env var: CAPSOLVER_API_KEY=CAP-xxxx",
+        "key_functions": [
+          "capsolver.solve({type, websiteKey, websiteURL, ...}) — solve any CAPTCHA type",
+          "capsolver.balance() — check account balance"
+        ],
+        "captcha_types_supported": {
+          "cloudflare_turnstile": {
+            "type": "AntiTurnstileTaskProxyLess",
+            "required_params": ["websiteURL", "websiteKey"],
+            "optional_params": ["metadata.action (data-action attr)", "metadata.cdata (data-cdata attr)"],
+            "response": {"token": "string", "type": "turnstile", "userAgent": "string"},
+            "solve_time": "1s to 20s depending on system load"
+          },
+          "recaptcha_v2": {
+            "type": "ReCaptchaV2TaskProxyLess",
+            "required_params": ["websiteURL", "websiteKey"]
+          },
+          "hcaptcha": {
+            "type": "HCaptchaTaskProxyLess",
+            "required_params": ["websiteURL", "websiteKey"]
+          }
+        },
+        "raw_api_alternative": {
+          "create_task": "POST https://api.capsolver.com/createTask",
+          "get_result": "POST https://api.capsolver.com/getTaskResult",
+          "note": "Can use requests library directly if capsolver SDK has issues"
+        },
+        "verified_against": "Context7 MCP: /capsolver/capsolver-python + https://docs.capsolver.com/en/guide/captcha/cloudflare_turnstile/"
+      },
+      "configuration": {
+        "env_vars": ["CAPSOLVER_API_KEY"],
+        "config_files": [],
+        "dependencies": ["requests (for raw API fallback)"]
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "external_service": "https://api.capsolver.com (paid API service)"
+      },
+      "gotchas": [
+        "CRITICAL: Must keep same IP address, TLS fingerprint, headers, and User-Agent that were used during solving phase — mismatch invalidates the solution",
+        "Turnstile websiteKey must be extracted from the page's Turnstile iframe (data-sitekey attribute)",
+        "SDK version 1.0.7 is from July 2023 — may not support latest features; raw API is a reliable fallback",
+        "AntiTurnstileTaskProxyLess does NOT require proxy — it handles solving server-side",
+        "Results arrive in 1-20 seconds — implement polling with reasonable delays",
+        "CapSolver supports all Turnstile variants: Manual, Non-Interactive, and Invisible with automatic detection",
+        "CAPTCHA type per country is UNKNOWN until live site discovery — solver must handle multiple types",
+        "Account balance should be checked before attempting solves to avoid silent failures"
+      ],
+      "research_sources": [
+        "Context7 MCP: /capsolver/capsolver-python",
+        "https://pypi.org/project/capsolver/ (v1.0.7)",
+        "https://docs.capsolver.com/en/guide/captcha/cloudflare_turnstile/",
+        "https://github.com/capsolver/capsolver-python"
+      ]
+    },
+    {
+      "name": "imap-tools (Email/OTP Reading)",
+      "type": "library",
+      "verified_package": {
+        "name": "imap-tools",
+        "install_command": "pip install imap-tools",
+        "version": "1.11.1 (released Jan 15 2026)",
+        "python_requires": ">=3.8",
+        "verified": true,
+        "note": "Recommended OVER raw imaplib — higher-level API, parsed messages, query builder"
+      },
+      "api_patterns": {
+        "imports": [
+          "from imap_tools import MailBox, AND, OR, NOT",
+          "from imap_tools import MailMessage"
+        ],
+        "initialization": "with MailBox('mail.atonota.com').login('user@atonota.com', 'password') as mailbox:\n    for msg in mailbox.fetch(AND(subject='verification', seen=False)):\n        print(msg.text)",
+        "key_functions": [
+          "MailBox(host, port=993) — create IMAP4_SSL connection",
+          "mailbox.login(username, password) — authenticate (supports context manager)",
+          "mailbox.fetch(criteria, limit=N, reverse=True) — fetch messages matching criteria",
+          "mailbox.uids(criteria) — get UIDs matching criteria without downloading",
+          "mailbox.delete(uid_list) — delete messages by UID",
+          "mailbox.flag(uid_list, flag_set, value=True) — set/unset flags",
+          "mailbox.move(uid_list, folder) — move messages",
+          "mailbox.folder.list() — list all folders",
+          "mailbox.folder.set(folder_name) — switch to folder",
+          "mailbox.idle.start() — start IDLE mode for push notifications",
+          "mailbox.idle.poll(timeout) — poll for new messages",
+          "mailbox.idle.wait(timeout) — wait for new messages"
+        ],
+        "message_attributes": [
+          "msg.uid — unique identifier",
+          "msg.subject — email subject",
+          "msg.from_ — sender address",
+          "msg.to — recipient tuple",
+          "msg.date — datetime object",
+          "msg.text — plain text body",
+          "msg.html — HTML body",
+          "msg.flags — message flags tuple",
+          "msg.attachments — list of attachments"
+        ],
+        "search_criteria": [
+          "AND(subject='text') — search by subject",
+          "AND(from_='sender@example.com') — search by sender",
+          "AND(seen=False) — search unread messages",
+          "AND(date_gte=datetime.date(2024,1,1)) — search by date",
+          "OR(subject='otp', subject='verification') — OR conditions",
+          "NOT(seen=True) — negation"
+        ],
+        "otp_extraction_pattern": "import re\notp_match = re.search(r'\\b(\\d{4,6})\\b', msg.text)\nif otp_match:\n    otp_code = otp_match.group(1)",
+        "verified_against": "https://pypi.org/project/imap-tools/ + https://github.com/ikvk/imap_tools"
+      },
+      "configuration": {
+        "env_vars": ["MAILCOW_HOST", "MAILCOW_USER", "MAILCOW_PASS", "MAILCOW_PORT"],
+        "config_files": [],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false,
+        "external_service": "Mailcow mail server at mail.atonota.com (IMAP4_SSL on port 993)"
+      },
+      "gotchas": [
+        "Mailcow uses standard IMAP4_SSL on port 993 — imap-tools connects via MailBox(host) which defaults to SSL",
+        "OTP emails typically arrive within 5-30 seconds — implement polling with timeout",
+        "OTP codes are valid for 60-90 seconds per requirements — pipeline must complete within 30s",
+        "Use AND(seen=False) + reverse=True + limit=1 to get latest unread email efficiently",
+        "After reading OTP, mark as read to avoid re-processing: mailbox.flag(msg.uid, 'SEEN', True)",
+        "VFS may send verification LINK instead of OTP code — parser must handle both patterns",
+        "imap-tools handles IMAP connection pooling internally — no need for manual connection management",
+        "IDLE mode (mailbox.idle) can be used for real-time push notifications instead of polling"
+      ],
+      "research_sources": [
+        "https://pypi.org/project/imap-tools/ (v1.11.1)",
+        "https://github.com/ikvk/imap_tools",
+        "https://skeptric.com/python-imap/"
+      ]
+    },
+    {
+      "name": "BrowserForge",
+      "type": "library",
+      "verified_package": {
+        "name": "browserforge",
+        "install_command": "# Auto-installed as camoufox dependency — DO NOT install separately",
+        "version": ">=1.2.1 (managed by camoufox)",
+        "verified": true,
+        "note": "Fingerprint injection in standalone BrowserForge is DEPRECATED — use through Camoufox"
+      },
+      "api_patterns": {
+        "imports": [
+          "from browserforge.fingerprints import FingerprintGenerator, Screen"
+        ],
+        "key_functions": [
+          "Screen(max_width=1920, max_height=1080) — constrain screen dimensions",
+          "FingerprintGenerator(browser='firefox', os=('windows',)) — create generator",
+          "fg.generate() — generate fingerprint (advanced use only)"
+        ],
+        "note": "Camoufox handles fingerprint generation automatically — only use BrowserForge directly for advanced screen constraints",
+        "verified_against": "Context7 MCP: /daijro/camoufox fingerprint docs"
+      },
+      "configuration": {
+        "env_vars": [],
+        "config_files": [],
+        "dependencies": []
+      },
+      "infrastructure": {
+        "requires_docker": false
+      },
+      "gotchas": [
+        "Standalone fingerprint injection is DEPRECATED — Camoufox handles this internally",
+        "Screen constraints can be passed directly to Camoufox(screen=Screen(...)) — no need for manual FingerprintGenerator",
+        "Using custom fingerprints requires i_know_what_im_doing=True flag",
+        "BrowserForge mimics real-world browser distribution statistics automatically"
+      ],
+      "research_sources": [
+        "https://pypi.org/project/browserforge/",
+        "https://github.com/daijro/browserforge",
+        "https://camoufox.com/python/browserforge/"
+      ]
+    },
+    {
+      "name": "n8n (Workflow Automation)",
+      "type": "infrastructure",
+      "verified_package": {
+        "name": "n8n",
+        "install_command": "N/A — external service, not a Python package",
+        "verified": true,
+        "note": "Referenced in requirements for automated email verification but NOT part of the Python bot code"
+      },
+      "api_patterns": {
+        "note": "n8n is an EXTERNAL workflow automation tool. The Python bot reads OTP directly via IMAP (imap-tools). n8n may handle higher-level orchestration but is NOT a code dependency."
+      },
+      "configuration": {
+        "env_vars": [],
+        "note": "n8n is infrastructure-level, managed separately from the bot"
+      },
+      "infrastructure": {
+        "requires_docker": true,
+        "docker_image": "n8nio/n8n",
+        "note": "Deployed separately — the bot communicates via Mailcow IMAP, not n8n API"
+      },
+      "gotchas": [
+        "n8n is NOT a Python dependency — it's infrastructure for email workflow automation",
+        "The bot should read OTP directly from Mailcow via IMAP, not through n8n",
+        "n8n may be used for account creation workflows or monitoring, but login/register flow is independent"
+      ],
+      "research_sources": [
+        "Requirements analysis — n8n mentioned as infrastructure component"
+      ]
+    }
+  ],
+  "stdlib_dependencies": [
+    {
+      "name": "platform",
+      "purpose": "Cross-platform OS detection (platform.system())",
+      "verified": true
+    },
+    {
+      "name": "os",
+      "purpose": "File paths, directory creation, environment variables",
+      "verified": true
+    },
+    {
+      "name": "random",
+      "purpose": "Weighted random selection for fingerprint OS, human-like delays",
+      "verified": true
+    },
+    {
+      "name": "time",
+      "purpose": "Sleep/delay functions for human-like behavior",
+      "verified": true
+    },
+    {
+      "name": "json",
+      "purpose": "Config file loading (countries.json, selectors)",
+      "verified": true
+    },
+    {
+      "name": "argparse",
+      "purpose": "CLI argument parsing for main.py",
+      "verified": true
+    },
+    {
+      "name": "datetime",
+      "purpose": "Timestamps for logging and debugging",
+      "verified": true
+    },
+    {
+      "name": "re",
+      "purpose": "Regex for OTP code extraction from email body",
+      "verified": true
+    }
+  ],
+  "full_requirements_txt": [
+    "camoufox[geoip]>=0.4.11",
+    "python-dotenv>=1.0.0",
+    "capsolver>=1.0.7",
+    "imap-tools>=1.7.0"
+  ],
+  "unverified_claims": [
+    {
+      "claim": "CAPTCHA type per VFS country (Turnstile vs reCAPTCHA vs hCaptcha)",
+      "reason": "Requires live site discovery — each country's VFS page may use different CAPTCHA type or none at all",
+      "risk_level": "medium",
+      "mitigation": "Build captcha_solver.py to handle all three types + no-captcha scenario; discover per-country on first run"
+    },
+    {
+      "claim": "OTP is required for VFS registration/login",
+      "reason": "otp_zorunlu is null for all countries in countries.json — needs live verification",
+      "risk_level": "medium",
+      "mitigation": "Build OTP reader as optional module; detect OTP requirement dynamically from page content"
+    },
+    {
+      "claim": "DOM selectors for VFS registration/login forms",
+      "reason": "All selectors are educated guesses based on common patterns (data-testid, type, name attributes) — actual VFS DOM structure is unknown until live discovery",
+      "risk_level": "high",
+      "mitigation": "Implement tiered fallback selector strategy (primary → fallback_1 → fallback_2) and per-country selector files that get populated after manual discovery"
+    },
+    {
+      "claim": "VFS email verification uses 4-6 digit OTP code",
+      "reason": "VFS may send a verification link instead of an OTP code, or may use a different format",
+      "risk_level": "medium",
+      "mitigation": "OTP reader must handle both numeric codes (regex \\d{4,6}) and verification links (regex href pattern)"
+    },
+    {
+      "claim": "Camoufox v0.4.11 has full anti-detect capability against current VFS Cloudflare",
+      "reason": "As of Jan 2026 there has been a maintenance gap in Camoufox — base Firefox version and fingerprint inconsistencies noted",
+      "risk_level": "medium",
+      "mitigation": "Start with low-protection countries (aut, hrv, che) as MVP; monitor for detection and adjust configuration"
+    },
+    {
+      "claim": "cf_clearance cookie can be reused across sessions via persistent_context",
+      "reason": "cf_clearance cookies have an expiration and may be invalidated by Cloudflare based on IP/fingerprint changes",
+      "risk_level": "low",
+      "mitigation": "Implement cf_clearance validation check before reuse; fall back to fresh challenge if expired"
+    }
+  ],
+  "recommendations": [
+    "Use imap-tools (NOT raw imaplib) for Mailcow IMAP OTP reading — it provides a much cleaner API with query builder, parsed messages, and IDLE support",
+    "Always run 'camoufox fetch' as part of setup/deployment — the browser binary is NOT included in the pip package",
+    "Install Xvfb on Linux production servers BEFORE running the bot: sudo apt install -y xvfb",
+    "Use capsolver SDK for CAPTCHA solving but keep the raw requests-based API as a fallback — the SDK is from July 2023 and may lack latest features",
+    "Start with AntiTurnstileTaskProxyLess for Cloudflare Turnstile — it's proxyless and simplest to integrate",
+    "For the imap-tools OTP reader, use IDLE mode (mailbox.idle.poll) for real-time push notifications instead of naive polling — reduces latency from 5-30s to near-instant",
+    "The requirements specify humanize=True but consider using humanize=2.0 (float) for more realistic cursor movement on slower connections",
+    "When extracting Turnstile websiteKey, look for the Turnstile iframe's data-sitekey attribute in the page DOM",
+    "Build the OTP reader to handle BOTH numeric codes and verification links — VFS behavior may vary by country",
+    "Pin camoufox[geoip]>=0.4.11 in requirements.txt to avoid breaking changes from future versions"
+  ],
+  "architecture_notes": {
+    "sync_vs_async": "Requirements code examples use sync API (Camoufox from sync_api). Stick with sync for simplicity unless concurrent multi-country operation is needed later.",
+    "playwright_access": "All Playwright Page/Locator APIs are available through Camoufox — the browser object returns standard Playwright Page objects via Juggler protocol.",
+    "captcha_flow": "1) Navigate to page → 2) Detect CAPTCHA type from DOM → 3) Extract websiteKey → 4) Send to CapSolver → 5) Poll for token → 6) Inject token into page → 7) Submit form",
+    "otp_flow": "1) Submit registration form → 2) Connect to Mailcow IMAP → 3) Search for latest unread from VFS → 4) Extract OTP/link via regex → 5) Enter OTP or navigate link → 6) Mark email as read",
+    "selector_strategy": "primary (data-testid) → fallback_1 (type/name) → fallback_2 (id/XPath) — country-specific overrides loaded from config/selectors/vfs_{country}.json"
+  },
+  "created_at": "2026-02-26T00:00:00Z"
+}

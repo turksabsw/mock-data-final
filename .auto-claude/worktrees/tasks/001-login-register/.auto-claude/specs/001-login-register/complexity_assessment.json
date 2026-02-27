@@ -1,0 +1,127 @@
+{
+  "complexity": "complex",
+  "workflow_type": "feature",
+  "confidence": 0.92,
+  "reasoning": "This is a greenfield Python automation bot requiring 17+ new files across multiple modules (platform detection, browser management, registration/login flows, OTP reading, CAPTCHA solving, CLI, tests). It involves 4+ external integrations (Camoufox/Juggler, Mailcow IMAP, CapSolver API, Cloudflare Turnstile bypass) with unfamiliar technologies that need research. The cross-platform (macOS/Windows/Linux) and multi-country (8 active VFS countries) architecture adds significant cross-cutting complexity.",
+
+  "analysis": {
+    "scope": {
+      "estimated_files": 20,
+      "estimated_services": 1,
+      "is_cross_cutting": true,
+      "notes": "Greenfield project building entire bot from scratch. 17+ source files including: .env, config/countries.json, 8+ selector JSON files, 8 Python modules in src/, main.py CLI, 4 test files. Cross-cutting concerns include cross-platform path logic (macOS/Windows/Linux), multi-country URL/selector management, and shared logging/debug infrastructure."
+    },
+    "integrations": {
+      "external_services": [
+        "Camoufox (anti-detect Firefox fork via Juggler protocol)",
+        "VFS Global website (target automation)",
+        "Cloudflare Turnstile (CAPTCHA/challenge bypass)",
+        "Mailcow IMAP (OTP email reading via atonota.com)",
+        "CapSolver API (CAPTCHA solving service)",
+        "Residential/Mobile proxy services"
+      ],
+      "new_dependencies": [
+        "camoufox",
+        "playwright",
+        "python-dotenv",
+        "capsolver (or HTTP-based CapSolver integration)"
+      ],
+      "research_needed": true,
+      "notes": "Camoufox is the critical integration — it uses Juggler protocol (NOT CDP), which fundamentally changes how Playwright interacts with the browser. The persistent_context, humanize, geoip, and disable_coop parameters are Camoufox-specific and need research. Cloudflare Turnstile bypass strategy needs investigation per country. Mailcow IMAP OTP extraction requires understanding VFS email format. CapSolver API requires understanding Turnstile/reCAPTCHA/hCaptcha token injection."
+    },
+    "infrastructure": {
+      "docker_changes": false,
+      "database_changes": false,
+      "config_changes": true,
+      "notes": "No Docker or database required — Camoufox runs as a local browser process. However, significant configuration infrastructure is needed: .env file with 15+ variables (VFS credentials, Mailcow, proxy, CAPTCHA API keys), config/countries.json (country registry), config/selectors/ directory with per-country JSON selector files. Linux deployment requires Xvfb (headless='virtual'). Per-country persistent browser profiles stored in platform-specific directories."
+    },
+    "knowledge": {
+      "patterns_exist": false,
+      "research_required": true,
+      "unfamiliar_tech": [
+        "Camoufox Python wrapper API",
+        "Juggler protocol (vs CDP)",
+        "Camoufox persistent_context with Playwright",
+        "Cloudflare Turnstile bypass/solving strategies",
+        "CapSolver API for Turnstile tokens",
+        "VFS Global form structure and anti-bot measures"
+      ],
+      "notes": "Project is 100% greenfield — no existing code, no patterns to follow. The project_index.json confirms empty services/infrastructure/conventions. Camoufox's Python API differs from standard Playwright (uses AsyncNewBrowser/NewBrowser context managers, not playwright.firefox.launch). Juggler protocol imposes different constraints than CDP. VFS Global's per-country form variations and Cloudflare aggressiveness levels are unknown and require live discovery. The master_prompt provides extensive code templates but these need validation against actual Camoufox API."
+    },
+    "risk": {
+      "level": "high",
+      "concerns": [
+        "VFS Global account bans are PERMANENT — testing errors are costly",
+        "Anti-bot detection (Cloudflare) could block automation entirely",
+        "OTP has 60-90 second validity — pipeline must complete in <30 seconds",
+        "Per-country form variations are unknown until live discovery",
+        "Camoufox API may differ from code templates in master_prompt",
+        "Credential handling (.env) requires careful security practices",
+        "Cross-platform path/headless mode differences could cause subtle bugs",
+        "Proxy dependency for production use (residential/mobile proxies)",
+        "cf_clearance cookie management and session persistence reliability"
+      ],
+      "notes": "The highest risk is VFS account bans (irreversible) combined with unknown site behavior per country. The OTP timing constraint (60-90s validity, pipeline must finish in <30s) creates a tight integration coupling between browser automation and email reading. Cloudflare's varying aggressiveness across countries means what works for aut/hrv may fail for ita/nld. Testing against live VFS site is inherently risky — no sandbox/staging environment available."
+    }
+  },
+
+  "recommended_phases": [
+    "discovery",
+    "requirements",
+    "research",
+    "context",
+    "spec_writing",
+    "self_critique",
+    "planning",
+    "validation"
+  ],
+
+  "flags": {
+    "needs_research": true,
+    "needs_self_critique": true,
+    "needs_infrastructure_setup": false
+  },
+
+  "validation_recommendations": {
+    "risk_level": "high",
+    "skip_validation": false,
+    "minimal_mode": false,
+    "test_types_required": ["unit", "integration", "e2e"],
+    "security_scan_required": true,
+    "staging_deployment_required": false,
+    "reasoning": "High-risk automation bot handling credentials, API keys, and anti-bot evasion requires comprehensive testing. Unit tests for platform detection, country management, and utility functions. Integration tests for Camoufox browser initialization, IMAP OTP reading, and selector fallback logic. E2E tests for register and login flows against VFS. Security scan required because the bot handles VFS credentials, Mailcow passwords, proxy credentials, and CAPTCHA API keys via .env. No staging deployment needed since the bot runs locally (no server infrastructure) — but live VFS testing should use MVP countries (aut/hrv/che) first."
+  },
+
+  "research_topics": [
+    {
+      "topic": "Camoufox Python API",
+      "priority": "critical",
+      "questions": [
+        "What is the exact API for launching Camoufox with persistent_context in Python?",
+        "How does camoufox.NewBrowser / AsyncNewBrowser work vs standard Playwright?",
+        "What parameters does Camoufox accept (humanize, geoip, disable_coop, os)?",
+        "How to properly set user_data_dir for persistent sessions?"
+      ]
+    },
+    {
+      "topic": "Cloudflare Turnstile handling",
+      "priority": "high",
+      "questions": [
+        "Does Camoufox with humanize=True auto-solve Turnstile challenges?",
+        "When is CapSolver API needed vs passive Turnstile bypass?",
+        "How to detect and handle cf_clearance cookie expiration?"
+      ]
+    },
+    {
+      "topic": "CapSolver API integration",
+      "priority": "medium",
+      "questions": [
+        "What is the CapSolver API format for Turnstile token solving?",
+        "How to inject solved tokens back into the page?",
+        "What are the rate limits and pricing considerations?"
+      ]
+    }
+  ],
+
+  "created_at": "2026-02-26T10:15:00Z"
+}

@@ -1,0 +1,95 @@
+{
+  "discovered_files": {
+    ".auto-claude/specs/001-login-register/research.json": {
+      "description": "imap-tools v1.11.1 recommended over raw imaplib for Mailcow OTP reading. MailBox(host).login(user,pass) context manager. AND/OR/NOT query builder. msg.text for body, msg.subject, msg.from_. Supports IDLE mode for push notifications.",
+      "category": "dependency",
+      "discovered_at": "2026-02-26T07:19:55.020997+00:00"
+    },
+    ".env.example": {
+      "description": "Project has 17 environment variables: VFS_ORIGIN, VFS_LANGUAGE, VFS_DEFAULT_COUNTRY, VFS_EMAIL, VFS_PASSWORD, VFS_FIRST_NAME, VFS_LAST_NAME, MAILCOW_HOST/USER/PASS/PORT, PROXY_SERVER/USERNAME/PASSWORD, CAPSOLVER_API_KEY, PROFILE_DIR, DEBUG_DIR",
+      "category": "configuration",
+      "discovered_at": "2026-02-26T07:40:15.365045+00:00"
+    },
+    "config/countries.json": {
+      "description": "countries.json structure: _meta section with url_sablonu template, ulkeler dict with 11 entries. Each entry has: ad, ad_en, kod, provider, aktif, oncelik, koruma_seviyesi, mvp, captcha_tipi, otp_zorunlu, notlar. Active VFS: aut, hrv, che, bel, cze, irl, ita, nld. Excluded: deu (auslandsportal), fra (tlscontact), gbr (tlscontact).",
+      "category": "configuration",
+      "discovered_at": "2026-02-26T07:42:38.924632+00:00"
+    },
+    "config/selectors/": {
+      "description": "8 placeholder selector JSON files created for active VFS countries (aut, bel, che, cze, hrv, irl, ita, nld). Each has _meta section only. Real CSS selectors with primary/fallback_1/fallback_2 tiers will be populated after live site recon. country_manager.py GENEL_VFS_SELECTOR_SABLONU serves as fallback when these are empty.",
+      "category": "config",
+      "discovered_at": "2026-02-26T07:45:06.288737+00:00"
+    },
+    "src/platform_config.py": {
+      "description": "platform_config.py implements 3 core functions: platform_ayarlari_al() returns dict with sistem/headless/profile_dir/debug_dir/xvfb_gerekli keys. Linux uses headless=\"virtual\", macOS/Windows use headless=False. .env PROFILE_DIR/DEBUG_DIR override defaults. parmak_izi_os_sec() returns weighted random from [\"windows\",\"macos\",\"linux\"] with [75,17,8]. camoufox_config_olustur(ulke_kodu, proxy) builds full Camoufox config dict with mandatory humanize/disable_coop/geoip/persistent_context and per-country user_data_dir.",
+      "category": "module_implementation",
+      "discovered_at": "2026-02-26T07:48:17.295089+00:00"
+    },
+    "src/country_manager.py": {
+      "description": "UlkeYonetici class loads config/countries.json, validates VFS countries (8 active: aut,bel,che,cze,hrv,irl,ita,nld), builds URLs via url_olustur(code, page). selectors_yukle() checks config/selectors/vfs_{code}.json first, falls back to GENEL_VFS_SELECTOR_SABLONU when file only has _meta. Template has 'register' (7 fields) and 'login' (4 fields) with 3-tier CSS selectors. Raises ValueError for non-VFS providers (deu/fra/gbr) with provider info.",
+      "category": "implementation",
+      "discovered_at": "2026-02-26T07:51:28.479044+00:00"
+    },
+    "src/utils.py": {
+      "description": "utils.py module-level setup: calls platform_ayarlari_al() at import time to resolve LOG_DIR and SCREENSHOT_DIR. Lazy-loads UlkeYonetici singleton via _ulke_yonetici_al(). All 6 public functions: log(), screenshot_al(), insan_gibi_bekle(), insan_gibi_yaz(), element_bul(), akis_calistir(). log() writes to vise_{date}.log in LOG_DIR. element_bul() uses uy.selectors_yukle() with 3-tier fallback and timeout/3 per tier.",
+      "category": "implementation",
+      "discovered_at": "2026-02-26T07:54:16.955421+00:00"
+    },
+    "src/browser.py": {
+      "description": "browser.py implements 9 functions: proxy_yapilandir() reads PROXY_SERVER/USERNAME/PASSWORD from .env. tarayici_baslat(ulke_kodu, proxy) uses NewBrowser + sync_playwright().start() for persistent context, returns (pw, context, page). tarayici_baslat_test() uses Camoufox() context manager for non-persistent. sayfa_git(page, url) navigates with wait_until='domcontentloaded' + insan_gibi_bekle after load. tarayici_kapat(pw, context, page) cleans up in order. tarayici_kapat_test() cleans up context manager. cf_clearance_kontrol(context) checks for Cloudflare cookie. Helper functions: _xvfb_kontrol() checks Xvfb on Linux, _profil_kilidi_kontrol() checks for lock files.",
+      "category": "module_structure",
+      "discovered_at": "2026-02-26T07:57:27.832147+00:00"
+    },
+    "src/otp_reader.py": {
+      "description": "OtpOkuyucu class implements Mailcow IMAP OTP reading via imap-tools. Key API: baglan() opens connection, otp_bekle(timeout, max_deneme) uses IDLE mode for real-time detection + 3x retry, otp_cikart(msg) extracts numeric OTP codes, link_cikart(msg) extracts verification URLs, kapat() closes connection. Returns dict with otp/link/konu/gonderen keys. Uses AND(seen=False) with reverse=True for newest-first fetch. VFS email filtering by sender patterns (vfsglobal.com, noreply) and subject keywords.",
+      "category": "module_api",
+      "discovered_at": "2026-02-26T08:01:46.672282+00:00"
+    },
+    "src/captcha_solver.py": {
+      "description": "CaptcaCozucu class implements full CAPTCHA pipeline: captcha_tipi_algila() detects type via DOM + config, turnstile_bypass() uses frame_locator() checkbox click (3 retries, multiple iframe/checkbox selectors), capsolver_coz() uses SDK primary + raw HTTP POST /createTask + /getTaskResult fallback with 120s max wait. Task types: AntiTurnstileTaskProxyLess, ReCaptchaV2TaskProxyLess, HCaptchaTaskProxyLess. token_enjekte_et() does per-type JS injection. captcha_coz() is high-level orchestrator. Uses requests lib (transitive dep of capsolver). CAPSOLVER_API_KEY from .env.",
+      "category": "module_api",
+      "discovered_at": "2026-02-26T08:06:36.602961+00:00"
+    },
+    "src/register.py": {
+      "description": "register.py implements register_yap(ulke_kodu) \u2014 10 functions, 556 lines. Main entry point orchestrates 9-step flow. Helper functions: _env_kimlik_bilgileri_al() loads 4 env vars (VFS_EMAIL/PASSWORD/FIRST_NAME/LAST_NAME). _alan_doldur() combines element_bul() + human-like char-by-char typing. _form_doldur() fills 6 fields. _form_gonder() clicks submit via element_bul(). _email_dogrulama_yap(page, ulke_kodu) handles post-registration verification via OtpOkuyucu (link navigation or OTP entry). _otp_kodu_gir() uses login page's otp_field selectors. _sayfa_hata_kontrol() detects email-already-registered and password-policy errors. _dogrulama_gerekli_mi() scans page text for verification prompts. Error patterns in HATA_EMAIL_KAYITLI and HATA_SIFRE_POLITIKASI constants.",
+      "category": "implementation",
+      "discovered_at": "2026-02-26T08:14:59.006805+00:00"
+    },
+    "src/login.py": {
+      "description": "login.py implements login_yap(ulke_kodu) \u2014 11 functions, 617 lines. Main entry point orchestrates 10-step flow. Helper functions: _env_giris_bilgileri_al() loads 2 env vars (VFS_EMAIL/PASSWORD). _alan_doldur() combines element_bul() + human-like char-by-char typing. _form_doldur() fills 2 fields (email, password). _form_gonder() clicks submit via element_bul(). _otp_gerekli_mi() scans page text for OTP prompts. _otp_isle(page, ulke_kodu) handles full OTP pipeline via OtpOkuyucu (connect, wait IDLE, extract, enter, submit). _otp_kodu_gir() enters OTP using login page selectors. _otp_submit_tikla() clicks submit after OTP. _giris_basarili_mi() verifies login success via URL and page text. _sayfa_hata_kontrol() detects errors. Error patterns: HATA_GECERSIZ_KIMLIK, HATA_HESAP_KILITLI, HATA_HESAP_BULUNAMADI. OTP patterns: OTP_IPUCLARI. Success patterns: GIRIS_BASARILI_IPUCLARI + GIRIS_BASARILI_URL_IPUCLARI.",
+      "category": "module_api",
+      "discovered_at": "2026-02-26T08:20:09.300287+00:00"
+    },
+    "main.py": {
+      "description": "main.py CLI entry point: argparse with positional 'aksiyon' (register/login/test) and --country/-c flag (default from VFS_DEFAULT_COUNTRY env or 'aut'). load_dotenv() called BEFORE src imports. Heavy module imports (register_yap, login_yap) lazy-loaded inside dispatch functions to avoid import-time side effects for --help. 'test' action runs register then login sequentially. Exit code 0 on success, 1 on failure. System info logged at startup: platform, headless, xvfb, profile/debug dirs.",
+      "category": "architecture",
+      "discovered_at": "2026-02-26T08:22:58.925551+00:00"
+    },
+    "tests/test_platform_detection.py": {
+      "description": "32 unit tests in 3 classes. Uses @patch(\"src.platform_config.platform.system\") to mock OS detection for all 3 platforms. Uses monkeypatch for env vars (PROFILE_DIR, DEBUG_DIR). Uses tmp_path for safe directory creation. autouse fixture clears env vars before each test. Distribution test uses wide tolerance (+-15-20%) to avoid flakiness. All platform-mocked tests set env overrides to tmp_path to prevent real directory creation, except default-path tests which mock os.makedirs instead.",
+      "category": "testing",
+      "discovered_at": "2026-02-26T08:26:36.182286+00:00"
+    },
+    "tests/test_country_manager.py": {
+      "description": "51 unit tests in 5 classes. Uses autouse fixture to clear VFS_ORIGIN/VFS_LANGUAGE env vars (prevents .env leakage into URL tests). Uses patch(\"src.country_manager._SELECTORS_DIR\", tmp_path) to test custom selector loading and fallback scenarios. Tests cover: country loading (8 active VFS), validation (ValueError for deu/fra/gbr/unknown), URL building (exact URLs + env overrides), selector fallback (placeholder->default, missing->default, invalid JSON->default, custom->loaded), and template structure (register 7 fields, login 4 fields, 3-tier selectors, ai_hint presence).",
+      "category": "test",
+      "discovered_at": "2026-02-26T08:31:34.113260+00:00"
+    },
+    "tests/test_camoufox_health.py": {
+      "description": "19 tests in 5 classes. Marked @pytest.mark.integration. Unit-level browser config tests (no launch needed), profile lock detection, Xvfb check, browser close safety with mocks, and 3 actual Camoufox launch tests (skipped if binary not installed). The launch tests verify: non-persistent launch+close, data:URL navigation, and navigator.webdriver anti-detect check.",
+      "category": "testing",
+      "discovered_at": "2026-02-26T08:36:55.712033+00:00"
+    },
+    "tests/test_register_e2e.py": {
+      "description": "12 E2E test skeletons in 3 classes. Marked @pytest.mark.e2e. Module import validation tests run always. Config validation tests (URLs, selectors, env vars) run always. E2E flow tests for aut/hrv/che are skipped unless Camoufox binary + .env credentials (VFS_EMAIL, VFS_PASSWORD, VFS_FIRST_NAME, VFS_LAST_NAME) all present. Uses _e2e_gereksinimleri_mevcut() skipif helper.",
+      "category": "testing",
+      "discovered_at": "2026-02-26T08:36:58.591516+00:00"
+    },
+    "tests/test_login_e2e.py": {
+      "description": "17 E2E test skeletons in 4 classes. Marked @pytest.mark.e2e. Module import + pattern validation tests run always. Config validation tests run always. E2E flow tests for aut/hrv/che skipped without Camoufox + .env credentials. OTP integration class with OtpOkuyucu construction test (always runs) and IMAP connection test (skipped without MAILCOW_HOST/USER/PASS). Uses _e2e_gereksinimleri_mevcut() and _otp_gereksinimleri_mevcut() skipif helpers.",
+      "category": "testing",
+      "discovered_at": "2026-02-26T08:37:01.058558+00:00"
+    }
+  },
+  "last_updated": "2026-02-26T08:37:01.058568+00:00"
+}

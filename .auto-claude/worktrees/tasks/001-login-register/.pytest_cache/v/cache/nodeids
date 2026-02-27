@@ -1,0 +1,21 @@
+[
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_browser_modulu_import_edilebilir",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_camoufox_config_headless_asla_true",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_camoufox_config_os_gecerli",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_camoufox_config_user_data_dir_mevcut",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_camoufox_config_zorunlu_parametreler",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_proxy_yapilandir_none_varsayilan",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_proxy_yapilandir_sadece_server",
+  "tests/test_camoufox_health.py::TestBrowserConfigSaglik::test_proxy_yapilandir_server_var",
+  "tests/test_camoufox_health.py::TestCamoufoxBaslatma::test_tarayici_baslat_test_non_persistent",
+  "tests/test_camoufox_health.py::TestCamoufoxBaslatma::test_tarayici_sayfa_acilir",
+  "tests/test_camoufox_health.py::TestCamoufoxBaslatma::test_tarayici_webdriver_gizli",
+  "tests/test_camoufox_health.py::TestProfilKilidiKontrol::test_bos_dizin_kullanilabilir",
+  "tests/test_camoufox_health.py::TestProfilKilidiKontrol::test_kilitli_dizin_tespit_edilir",
+  "tests/test_camoufox_health.py::TestProfilKilidiKontrol::test_olmayan_dizin_kullanilabilir",
+  "tests/test_camoufox_health.py::TestProfilKilidiKontrol::test_parent_lock_tespit_edilir",
+  "tests/test_camoufox_health.py::TestTarayiciKapatGuvenlik::test_tarayici_kapat_hata_yutulmaz",
+  "tests/test_camoufox_health.py::TestTarayiciKapatGuvenlik::test_tarayici_kapat_none_parametreler",
+  "tests/test_camoufox_health.py::TestTarayiciKapatGuvenlik::test_tarayici_kapat_test_none_parametreler",
+  "tests/test_camoufox_health.py::TestXvfbKontrol::test_xvfb_gereksiz_true_doner"
+]

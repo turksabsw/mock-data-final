@@ -1,0 +1,25 @@
+{
+  "active": true,
+  "spec": "001-login-register",
+  "state": "complete",
+  "subtasks": {
+    "completed": 17,
+    "total": 17,
+    "in_progress": 0,
+    "failed": 0
+  },
+  "phase": {
+    "current": "Integration Verification",
+    "id": null,
+    "total": 1
+  },
+  "workers": {
+    "active": 0,
+    "max": 1
+  },
+  "session": {
+    "number": 17,
+    "started_at": "2026-02-26T10:38:12.128675"
+  },
+  "last_update": "2026-02-26T11:42:57.208044"
+}

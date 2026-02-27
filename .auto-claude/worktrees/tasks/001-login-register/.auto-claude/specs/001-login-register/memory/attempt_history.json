@@ -1,0 +1,213 @@
+{
+  "subtasks": {
+    "subtask-1-1": {
+      "attempts": [
+        {
+          "session": 1,
+          "timestamp": "2026-02-26T07:40:25.150360+00:00",
+          "approach": "Implemented: Create project directory structure and core config files (.env, .env.example, .gitignore, requiremen",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-1-2": {
+      "attempts": [
+        {
+          "session": 2,
+          "timestamp": "2026-02-26T07:42:49.381620+00:00",
+          "approach": "Implemented: Create config/countries.json with all 11 country entries (8 active VFS + 3 excluded) and config/prox",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-1-3": {
+      "attempts": [
+        {
+          "session": 3,
+          "timestamp": "2026-02-26T07:45:13.471724+00:00",
+          "approach": "Implemented: Create empty placeholder selector JSON files for all 8 active VFS countries under config/selectors/",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-1-4": {
+      "attempts": [
+        {
+          "session": 4,
+          "timestamp": "2026-02-26T07:46:03.824933+00:00",
+          "approach": "Implemented: Create debug directory structure (debug/screenshots/, debug/har/, debug/logs/)",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-2-1": {
+      "attempts": [
+        {
+          "session": 5,
+          "timestamp": "2026-02-26T07:48:34.763543+00:00",
+          "approach": "Implemented: Implement src/platform_config.py with platform_ayarlari_al(), parmak_izi_os_sec(), and camoufox_conf",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-3-1": {
+      "attempts": [
+        {
+          "session": 6,
+          "timestamp": "2026-02-26T07:51:41.399932+00:00",
+          "approach": "Implemented: Implement src/country_manager.py with UlkeYonetici class and GENEL_VFS_SELECTOR_SABLONU default sele",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-4-1": {
+      "attempts": [
+        {
+          "session": 7,
+          "timestamp": "2026-02-26T07:54:29.158214+00:00",
+          "approach": "Implemented: Implement src/utils.py with log(), screenshot_al(), insan_gibi_bekle(), insan_gibi_yaz(), element_bu",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-5-1": {
+      "attempts": [
+        {
+          "session": 8,
+          "timestamp": "2026-02-26T07:57:40.360167+00:00",
+          "approach": "Implemented: Implement src/browser.py with tarayici_baslat() (persistent via NewBrowser), tarayici_baslat_test() ",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-6-1": {
+      "attempts": [
+        {
+          "session": 9,
+          "timestamp": "2026-02-26T08:01:59.622233+00:00",
+          "approach": "Implemented: Implement src/otp_reader.py with Mailcow IMAP connection via imap-tools, OTP code extraction, verifi",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-6-2": {
+      "attempts": [
+        {
+          "session": 10,
+          "timestamp": "2026-02-26T08:06:50.245505+00:00",
+          "approach": "Implemented: Implement src/captcha_solver.py with Turnstile bypass via frame_locator(), CapSolver API skeleton (S",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-7-1": {
+      "attempts": [
+        {
+          "session": 11,
+          "timestamp": "2026-02-26T08:15:12.179889+00:00",
+          "approach": "Implemented: Implement src/register.py with register_yap() \u2014 country-agnostic registration flow using config-driv",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-7-2": {
+      "attempts": [
+        {
+          "session": 12,
+          "timestamp": "2026-02-26T08:20:25.699165+00:00",
+          "approach": "Implemented: Implement src/login.py with login_yap() \u2014 country-agnostic login flow with OTP support via Mailcow I",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-8-1": {
+      "attempts": [
+        {
+          "session": 13,
+          "timestamp": "2026-02-26T08:23:11.079423+00:00",
+          "approach": "Implemented: Implement main.py with argparse CLI supporting register/login/test actions and --country flag",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-9-1": {
+      "attempts": [
+        {
+          "session": 14,
+          "timestamp": "2026-02-26T08:26:48.489508+00:00",
+          "approach": "Implemented: Implement tests/test_platform_detection.py with unit tests for platform_ayarlari_al(), parmak_izi_os",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-9-2": {
+      "attempts": [
+        {
+          "session": 15,
+          "timestamp": "2026-02-26T08:31:43.495737+00:00",
+          "approach": "Implemented: Implement tests/test_country_manager.py with unit tests for UlkeYonetici (country loading, URL build",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-9-3": {
+      "attempts": [
+        {
+          "session": 16,
+          "timestamp": "2026-02-26T08:37:16.208107+00:00",
+          "approach": "Implemented: Implement tests/test_camoufox_health.py as a browser health check and tests/test_register_e2e.py + t",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    },
+    "subtask-10-1": {
+      "attempts": [
+        {
+          "session": 17,
+          "timestamp": "2026-02-26T08:42:43.443561+00:00",
+          "approach": "Implemented: End-to-end integration verification: run all unit tests, verify CLI help output, verify all imports ",
+          "success": true,
+          "error": null
+        }
+      ],
+      "status": "completed"
+    }
+  },
+  "stuck_subtasks": [],
+  "metadata": {
+    "created_at": "2026-02-26T07:38:12.128467+00:00",
+    "last_updated": "2026-02-26T08:42:43.443570+00:00"
+  }
+}

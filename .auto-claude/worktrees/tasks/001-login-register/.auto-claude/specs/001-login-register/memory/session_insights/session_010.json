@@ -1,0 +1,246 @@
+{
+  "session_number": 10,
+  "timestamp": "2026-02-26T08:07:19.312453+00:00",
+  "subtasks_completed": [
+    "subtask-6-2"
+  ],
+  "discoveries": {
+    "file_insights": [
+      {
+        "file": "src/captcha_solver.py",
+        "type": "new_file",
+        "lines_of_code": 854,
+        "purpose": "CAPTCHA detection, Turnstile bypass via frame_locator(), and CapSolver API integration",
+        "key_components": [
+          "CaptcaCozucu class: Main CAPTCHA solver implementation",
+          "CAPTCHA type detection (Turnstile, reCAPTCHA, hCaptcha)",
+          "Turnstile iframe bypass via checkbox click",
+          "CapSolver API integration with SDK primary + HTTP fallback",
+          "Site key extraction from DOM",
+          "Token injection capabilities",
+          "UlkeYonetici singleton lazy loader for country config",
+          "Comprehensive error handling and logging"
+        ],
+        "dependencies": [
+          "requests library",
+          "playwright (page, frame_locator)",
+          "capsolver SDK (optional)",
+          "src.utils (log, screenshot_al, insan_gibi_bekle)",
+          "src.country_manager (UlkeYonetici)",
+          "CAPSOLVER_API_KEY environment variable"
+        ],
+        "language": "Python",
+        "style_notes": "Turkish localization for method names and logging"
+      }
+    ],
+    "patterns_discovered": [
+      {
+        "pattern": "Multiple Selector Fallback Chain",
+        "description": "Each CAPTCHA type has multiple CSS selectors tried in sequence to handle implementation variations",
+        "examples": [
+          "TURNSTILE_IFRAME_SELECTORS: 6 different iframe detection patterns",
+          "SITEKEY_SELECTORS: Type-specific selector lists with generic fallback",
+          "Checkbox detection in frame: 5 different selector patterns"
+        ],
+        "benefit": "Robustness across different website implementations"
+      },
+      {
+        "pattern": "Lazy-Loaded Singleton",
+        "description": "UlkeYonetici instance created on first use and cached globally",
+        "code": "_ulke_yonetici_al() function with global caching",
+        "benefit": "Efficient resource management, single country config access point"
+      },
+      {
+        "pattern": "Graceful Fallback Chain",
+        "description": "API solution attempts in order: SDK \u2192 HTTP raw API \u2192 bypass-only mode",
+        "stages": [
+          "SDK import attempted in __init__",
+          "Task creation via SDK if available",
+          "Raw HTTP POST fallback if SDK unavailable",
+          "Bypass-only mode if no API key"
+        ],
+        "benefit": "Works with or without SDK/API key, maximum compatibility"
+      },
+      {
+        "pattern": "Retry Logic with Exponential Backoff",
+        "description": "Multiple retry mechanisms with configurable delays",
+        "examples": [
+          "max_deneme parameter for Turnstile bypass attempts",
+          "CAPSOLVER_POLL_ARALIK_MIN/MAX for polling intervals",
+          "insan_gibi_bekle() for humanized random delays"
+        ],
+        "benefit": "Improves success rates on flaky networks/services"
+      },
+      {
+        "pattern": "Comprehensive State Verification",
+        "description": "Success detection checks multiple indicators",
+        "example": "_turnstile_cozuldu_mu() checks 3 different success selectors",
+        "benefit": "Reduces false negatives, handles different response formats"
+      },
+      {
+        "pattern": "Request Signature Preservation",
+        "description": "Documentation emphasizes IP/TLS/headers must match for Turnstile validity",
+        "note": "Critical for API-solved tokens",
+        "benefit": "Warns developers about token invalidation risk"
+      }
+    ],
+    "gotchas_discovered": [
+      {
+        "gotcha": "COOP Requirement for Turnstile Bypass",
+        "severity": "CRITICAL",
+        "description": "frame_locator() access requires disable_coop=True in Camoufox browser config",
+        "impact": "Bypass completely non-functional without this browser configuration setting",
+        "mention_location": "Module docstring and turnstile_bypass() docstring",
+        "mitigation": "Must be set in Camoufox initialization, not at runtime"
+      },
+      {
+        "gotcha": "Token Signature Mismatch Invalidation",
+        "severity": "HIGH",
+        "description": "Turnstile tokens bound to IP, TLS fingerprint, headers, and User-Agent",
+        "impact": "If any signature changes between solving and submission, token rejected by Cloudflare",
+        "mention_location": "capsolver_coz() docstring IMPORTANT section",
+        "risk_scenario": "Proxy IP rotation, browser fingerprint change, request header differences"
+      },
+      {
+        "gotcha": "CAPSOLVER_API_KEY Missing Handling",
+        "severity": "MEDIUM",
+        "description": "Graceful degradation to bypass-only mode if .env key missing",
+        "impact": "No error on startup, but capsolver_coz() raises ValueError when called",
+        "mitigation": "Warning logged in __init__, but requires careful calling code",
+        "recommendation": "Validate API key availability before attempting API calls"
+      },
+      {
+        "gotcha": "SDK Optional Dependency",
+        "severity": "MEDIUM",
+        "description": "capsolver SDK import is optional, wrapped in try-except",
+        "impact": "Falls back to HTTP API if SDK not installed, but requires requests library always",
+        "note": "SDK provides convenience, not required functionality"
+      },
+      {
+        "gotcha": "Frame Access Timing Issues",
+        "severity": "MEDIUM",
+        "description": "Turnstile iframe may not be immediately accessible or loaded",
+        "impact": "First bypass attempts may fail even with correct config",
+        "mitigation": "Multiple retries with delays, but no explicit iframe load wait",
+        "recommendation": "Consider explicit wait for iframe presence before attempting click"
+      },
+      {
+        "gotcha": "Site Key Extraction Complexity",
+        "severity": "LOW",
+        "description": "data-sitekey attribute location varies; multiple selectors tried sequentially",
+        "impact": "Site key extraction may fail silently if element structure unusual",
+        "mitigation": "Generic [data-sitekey] fallback selector as last resort",
+        "note": "Screenshot taken on failure for debugging"
+      },
+      {
+        "gotcha": "CapSolver API Polling Timeout",
+        "severity": "LOW",
+        "description": "CAPSOLVER_MAX_BEKLEME = 120 seconds is hardcoded",
+        "impact": "Long CAPTCHA solutions may timeout, no configuration option",
+        "mitigation": "120s is reasonable default, but not flexible",
+        "recommendation": "Make configurable via environment variable"
+      }
+    ],
+    "approach_outcome": {
+      "status": "SUCCESS",
+      "subtask_id": "subtask-6-2",
+      "session_number": 10,
+      "what_was_built": "Complete CAPTCHA solver module supporting detection, Turnstile bypass, and CapSolver API integration",
+      "key_achievements": [
+        "Implemented CaptcaCozucu class with 854 lines of well-structured code",
+        "Multi-type detection: Turnstile, reCAPTCHA, hCaptcha",
+        "Turnstile bypass via Playwright frame_locator() with retry logic",
+        "CapSolver API integration with both SDK and raw HTTP fallback",
+        "Country-based CAPTCHA type configuration support via UlkeYonetici",
+        "Comprehensive error handling and logging throughout",
+        "Defensive selector chains for robust element detection"
+      ],
+      "code_quality": "Production-ready with proper documentation, error handling, and logging",
+      "test_coverage": "Not included in this session; integration tests needed",
+      "deployment_readiness": "Requires: disable_coop=True in Camoufox config + CAPSOLVER_API_KEY in .env"
+    },
+    "recommendations": [
+      {
+        "priority": "CRITICAL",
+        "category": "Documentation",
+        "recommendation": "Create deployment guide emphasizing disable_coop=True requirement",
+        "rationale": "Bypass will silently fail without this browser config; developers must understand dependency",
+        "effort": "Low"
+      },
+      {
+        "priority": "HIGH",
+        "category": "Testing",
+        "recommendation": "Add integration tests for each CAPTCHA type detection against real/mock websites",
+        "rationale": "Detection selectors are fragile to HTML structure changes; tests prevent regressions",
+        "effort": "Medium"
+      },
+      {
+        "priority": "HIGH",
+        "category": "Monitoring",
+        "recommendation": "Implement metrics for bypass success rate vs API fallback usage",
+        "rationale": "Understanding which path works best informs optimization and cost management",
+        "effort": "Medium"
+      },
+      {
+        "priority": "MEDIUM",
+        "category": "Configuration",
+        "recommendation": "Make timeout values environment variables (CAPSOLVER_MAX_BEKLEME, poll intervals)",
+        "rationale": "Currently hardcoded; different integrations may need different timeouts",
+        "effort": "Low"
+      },
+      {
+        "priority": "MEDIUM",
+        "category": "Performance",
+        "recommendation": "Implement domain-based CAPTCHA type caching to reduce detection overhead",
+        "rationale": "Repeated detection on same domain is wasteful; cache results with TTL",
+        "effort": "Medium"
+      },
+      {
+        "priority": "MEDIUM",
+        "category": "Reliability",
+        "recommendation": "Add explicit iframe load wait before Turnstile bypass attempts",
+        "rationale": "Current implementation relies on retries; explicit wait improves success rate",
+        "effort": "Low"
+      },
+      {
+        "priority": "MEDIUM",
+        "category": "API Integration",
+        "recommendation": "Implement request rate limiting/queuing for CapSolver API calls",
+        "rationale": "CapSolver has quota limits; rate limiting prevents quota exhaustion",
+        "effort": "Medium"
+      },
+      {
+        "priority": "LOW",
+        "category": "Security",
+        "recommendation": "Add token reuse detection and expiration handling",
+        "rationale": "Turnstile tokens may expire; tracking usage patterns improves reliability",
+        "effort": "Medium"
+      },
+      {
+        "priority": "LOW",
+        "category": "Code Quality",
+        "recommendation": "Extract magic numbers (retry counts, timeouts) to named constants",
+        "rationale": "Improves readability and maintainability; currently some are inline",
+        "effort": "Low"
+      },
+      {
+        "priority": "LOW",
+        "category": "Logging",
+        "recommendation": "Add DEBUG-level logging for selector matching attempts",
+        "rationale": "Would help diagnose detection failures without code changes",
+        "effort": "Low"
+      }
+    ],
+    "subtask_id": "subtask-6-2",
+    "session_num": 10,
+    "success": true,
+    "changed_files": [
+      "src/captcha_solver.py"
+    ]
+  },
+  "what_worked": [
+    "Implemented subtask: subtask-6-2"
+  ],
+  "what_failed": [],
+  "recommendations_for_next_session": []
+}

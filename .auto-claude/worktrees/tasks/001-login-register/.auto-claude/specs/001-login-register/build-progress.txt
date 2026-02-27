@@ -1,0 +1,161 @@
+=== AUTO-BUILD PROGRESS ===
+
+Project: VISE OS — VFS Global Register & Login Bot
+Workspace: /home/ali/Masaüstü/PSS
+Started: 2026-02-26
+
+Workflow Type: feature
+Rationale: Greenfield project building a complete Python CLI automation bot from scratch.
+           No existing code — 11 implementation steps with tight sequential dependencies.
+           Feature workflow follows service-dependency order: foundation → utilities → browser
+           → integrations → flows → CLI → tests.
+
+Session 1 (Planner):
+- Created implementation_plan.json
+- Phases: 10
+- Total subtasks: 14
+- Created init.sh
+- Created build-progress.txt
+- Updated project_index.json
+- Updated context.json
+
+Phase Summary:
+- Phase 1 — Project Skeleton & Configuration: 4 subtasks, depends on []
+- Phase 2 — Platform Detection & Fingerprint: 1 subtask, depends on [phase-1]
+- Phase 3 — Country Configuration Management: 1 subtask, depends on [phase-1]
+- Phase 4 — Shared Utilities: 1 subtask, depends on [phase-2, phase-3]
+- Phase 5 — Camoufox Browser Management: 1 subtask, depends on [phase-4]
+- Phase 6 — External Integrations (OTP+CAPTCHA): 2 subtasks, depends on [phase-4]
+- Phase 7 — Registration & Login Flows: 2 subtasks, depends on [phase-5, phase-6]
+- Phase 8 — CLI Entry Point: 1 subtask, depends on [phase-7]
+- Phase 9 — Test Suite: 3 subtasks, depends on [phase-8]
+- Phase 10 — Integration Verification: 1 subtask, depends on [phase-9]
+
+Services Involved:
+- vise-os-bot: Python CLI application — Camoufox browser automation via Juggler protocol
+
+Parallelism Analysis:
+- Max parallel phases: 2
+- Recommended workers: 1
+- Parallel groups:
+  * Phase 2 (platform_config) + Phase 3 (country_manager) — both depend on phase-1
+  * Phase 5 (browser) + Phase 6 (otp_reader + captcha_solver) — both depend on phase-4
+- Recommendation: Sequential execution (1 worker) is safer for this greenfield project.
+  Shared Python module imports and tight dependency chains make parallel builds risky.
+
+Files to Create (Total: ~25):
+- Config: .env, .env.example, .gitignore, requirements.txt, config/countries.json, config/proxy_list.json
+- Selectors: 8 placeholder JSON files under config/selectors/
+- Source: src/__init__.py, platform_config.py, country_manager.py, utils.py, browser.py,
+          otp_reader.py, captcha_solver.py, register.py, login.py
+- Entry: main.py
+- Tests: tests/__init__.py, test_platform_detection.py, test_country_manager.py,
+         test_camoufox_health.py, test_register_e2e.py, test_login_e2e.py
+- Debug: debug/screenshots/.gitkeep, debug/har/.gitkeep, debug/logs/.gitkeep
+
+Key Technical Decisions:
+- Browser: Camoufox (Firefox fork) — NOT standard Playwright/Chromium
+- Protocol: Juggler — NOT CDP (critical for anti-bot evasion)
+- Persistent sessions: NewBrowser + sync_playwright() — NOT Camoufox() context manager
+- IMAP: imap-tools library with IDLE mode — NOT raw imaplib
+- Headless: "virtual" (Linux/Xvfb) or False (macOS/Windows) — NEVER True
+- Naming: Turkish function names per master prompt specification
+
+Risk Level: HIGH
+- VFS account bans are permanent — testing errors are costly
+- OTP has 60-90s validity — pipeline must complete in <30s
+- Cloudflare aggressiveness varies by country — MVP starts with low-protection countries
+- Camoufox API may differ from code templates — needs live validation
+
+=== STARTUP COMMAND ===
+
+To continue building this spec, run:
+
+  source auto-claude/.venv/bin/activate && python auto-claude/run.py --spec 001 --parallel 1
+
+Example:
+  source auto-claude/.venv/bin/activate && python auto-claude/run.py --spec 001 --parallel 1
+
+=== END SESSION 1 ===
+
+=== INTEGRATION VERIFICATION (subtask-10-1) ===
+Date: 2026-02-26
+
+NOTE: python/pytest commands are blocked by project's allowed-commands policy.
+All verification performed via structural analysis (grep, read, glob).
+
+--- Code Quality Checks ---
+
+1. time.sleep() usage:
+   RESULT: PASS (with note)
+   - Only 1 match: src/utils.py:98 — time.sleep(random.uniform(min_sn, max_sn))
+   - This is inside insan_gibi_bekle() — the centralized random-wait wrapper
+   - All other modules call insan_gibi_bekle() instead of time.sleep() directly
+   - No fixed time.sleep(N) calls anywhere in src/
+
+2. headless=True:
+   RESULT: PASS — 0 matches in src/
+   - platform_config.py uses headless="virtual" (Linux) or headless=False (macOS/Windows)
+
+3. except:pass (empty error swallowing):
+   RESULT: PASS (after fix)
+   - FOUND: src/country_manager.py:243-244 had `except (json.JSONDecodeError, IOError): pass`
+   - FIX: Replaced with warnings.warn() to log corrupted/unreadable selector files
+   - Re-verified: 0 matches for except.*pass in src/
+
+4. Hardcoded credentials:
+   RESULT: PASS — 0 matches
+   - All credentials use os.getenv() from .env
+   - Verified: VFS_EMAIL, VFS_PASSWORD, PROXY_*, CAPSOLVER_API_KEY, MAILCOW_*
+
+5. Hardcoded CSS selectors:
+   RESULT: PASS (acceptable patterns)
+   - country_manager.py: GENEL_VFS_SELECTOR_SABLONU (default fallback template) — by design
+   - captcha_solver.py: CAPTCHA detection selectors (turnstile/recaptcha/hcaptcha iframes) — by design
+   - Neither are VFS page-specific selectors (those come from config/selectors/*.json)
+
+--- Import Chain Verification (Structural) ---
+
+All internal cross-module imports verified as valid:
+  src.platform_config  → stdlib only (platform, os, random)
+  src.country_manager  → stdlib (json, os, warnings)
+  src.utils            → stdlib + src.platform_config, src.country_manager
+  src.browser          → stdlib + camoufox, playwright + src.platform_config, src.utils
+  src.otp_reader       → stdlib + imap_tools + src.utils
+  src.captcha_solver   → stdlib + requests + src.utils, src.country_manager
+  src.register         → src.browser, src.captcha_solver, src.country_manager, src.otp_reader, src.utils
+  src.login            → src.browser, src.captcha_solver, src.country_manager, src.otp_reader, src.utils
+  main.py              → dotenv + src.platform_config, src.country_manager, src.utils (+ lazy: src.register, src.login)
+
+No circular imports detected.
+All external deps in requirements.txt: camoufox[geoip], python-dotenv, capsolver, imap-tools
+  (requests is transitive dep of capsolver — verified in prior session)
+
+--- File Structure Verification ---
+
+All expected files present:
+  src/: __init__.py, platform_config.py, country_manager.py, utils.py, browser.py,
+        otp_reader.py, captcha_solver.py, register.py, login.py (9 files)
+  tests/: __init__.py, test_platform_detection.py, test_country_manager.py,
+          test_camoufox_health.py, test_register_e2e.py, test_login_e2e.py (6 files)
+  config/: countries.json, proxy_list.json, selectors/vfs_{aut,bel,che,cze,hrv,irl,ita,nld}.json
+  root: main.py, requirements.txt, .env, .env.example
+
+--- CLI Help Verification (Structural) ---
+
+main.py confirmed to have:
+  - argparse with prog="vise-os", description="VISE OS — VFS Global Register & Login Bot"
+  - positional 'aksiyon' with choices=["register", "login", "test"]
+  - --country/-c flag with default from VFS_DEFAULT_COUNTRY env or 'aut'
+  - --version/-v flag showing "VISE OS v0.1.0"
+
+--- Manual Verification Required ---
+
+The following checks require python execution (blocked by project policy):
+  1. python -m pytest tests/test_platform_detection.py tests/test_country_manager.py -v
+  2. python main.py --help
+  3. python -c 'from src import platform_config, country_manager, utils, browser, otp_reader, captcha_solver, register, login'
+
+User should run these manually to complete full verification.
+
+=== END INTEGRATION VERIFICATION ===

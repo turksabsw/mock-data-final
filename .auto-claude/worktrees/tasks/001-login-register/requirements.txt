@@ -1,0 +1,4 @@
+camoufox[geoip]>=0.4.11
+python-dotenv>=1.0.0
+capsolver>=1.0.7
+imap-tools>=1.7.0

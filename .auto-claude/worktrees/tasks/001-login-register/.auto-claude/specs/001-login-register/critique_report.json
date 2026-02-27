@@ -1,0 +1,127 @@
+{
+  "critique_completed": true,
+  "issues_found": [
+    {
+      "id": 1,
+      "severity": "high",
+      "category": "accuracy",
+      "description": "Tech stack section specified 'imaplib' for IMAP OTP retrieval, but research.json explicitly recommends and verifies 'imap-tools' (NOT raw imaplib). imap-tools provides higher-level API with query builder, parsed messages, and IDLE support. The research full_requirements_txt includes 'imap-tools>=1.7.0', not imaplib.",
+      "location": "Line 52 — Service Context > VISE OS Bot > Tech Stack",
+      "fix_applied": "Changed 'imaplib for Mailcow IMAP OTP retrieval' to 'imap-tools for Mailcow IMAP OTP retrieval (NOT raw imaplib — imap-tools provides higher-level API with query builder, parsed messages, and IDLE support)'",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "severity": "high",
+      "category": "accuracy",
+      "description": "Pattern 3 (Camoufox Configuration) showed persistent context usage with `Camoufox()` context manager (`with Camoufox(**config) as browser:`), but Context7 documentation explicitly shows that persistent context requires `NewBrowser` from `camoufox.sync_api` with `sync_playwright()`. The `Camoufox()` context manager is documented for NON-persistent sessions only. Using the wrong initialization pattern for persistent context could cause cf_clearance cookies NOT to persist across sessions — a critical anti-detection failure.",
+      "location": "Pattern 3: Camoufox Configuration (lines 186-210)",
+      "fix_applied": "Rewrote Pattern 3 to use `NewBrowser` with `sync_playwright()` as the primary persistent context approach. Added `camoufox_config_olustur()` as a named function (was previously inline config). Added `tarayici_baslat()` usage example. Kept `Camoufox()` as commented-out alternative for non-persistent test sessions. Added cleanup notes for `context.close()` and `pw.stop()`.",
+      "verified": true
+    },
+    {
+      "id": 3,
+      "severity": "medium",
+      "category": "completeness",
+      "description": "Install commands in 'How to Run' and 'Development Environment' sections only listed `pip install -U camoufox[geoip] python-dotenv`, missing `imap-tools` and `capsolver` which are required dependencies per research.json full_requirements_txt. Developers following the install instructions would get import errors.",
+      "location": "Lines 59-60 (How to Run) and Lines 484-490 (Prerequisites)",
+      "fix_applied": "Updated both install commands to: `pip install -U camoufox[geoip] python-dotenv imap-tools capsolver`. Also updated Linux system library install command to include all required packages: `sudo apt install -y xvfb libgtk-3-0 libx11-xcb1 libasound2`.",
+      "verified": true
+    },
+    {
+      "id": 4,
+      "severity": "medium",
+      "category": "completeness",
+      "description": "No explicit requirements.txt content was specified despite it being listed as a Step 1 file to create. research.json provides exact pinned versions: camoufox[geoip]>=0.4.11, python-dotenv>=1.0.0, capsolver>=1.0.7, imap-tools>=1.7.0. Without this, implementers must guess package versions.",
+      "location": "Files to Create table (after line 93)",
+      "fix_applied": "Added new '### requirements.txt Content' section with exact pinned versions from research.json. Added note that playwright and browserforge are auto-installed as Camoufox dependencies and should NOT be listed separately.",
+      "verified": true
+    },
+    {
+      "id": 5,
+      "severity": "medium",
+      "category": "consistency",
+      "description": "Pattern 3 showed raw inline config dict construction, but the QA section (line 568) tests `camoufox_config_olustur()` as a named function, and the Implementation Order (Step 2) references 'Camoufox config builder'. The function was never defined in the Patterns section, creating a gap between what's specified and what's tested.",
+      "location": "Pattern 3 (original lines 188-209) vs QA section (line 568) vs Implementation Order Step 2",
+      "fix_applied": "Defined `camoufox_config_olustur()` as a proper named function in Pattern 3, matching what the QA section expects to test. Also added `tarayici_baslat()` as a convenience function for browser launching.",
+      "verified": true
+    },
+    {
+      "id": 6,
+      "severity": "medium",
+      "category": "completeness",
+      "description": "Pattern 1 (platform_ayarlari_al) noted '.env overrides for PROFILE_DIR and DEBUG_DIR must be checked first' in Key Points, and these env vars are listed in Required Environment Variables section, but the actual code pattern did NOT include the override logic. Implementers would need to add it themselves.",
+      "location": "Pattern 1: Cross-Platform Detection (lines 122-160)",
+      "fix_applied": "Added `.env` override logic to `platform_ayarlari_al()` function: checks `os.getenv('PROFILE_DIR')` and `os.getenv('DEBUG_DIR')` and overrides defaults if set. Added Key Point about requiring `load_dotenv()` to be called before `platform_ayarlari_al()`.",
+      "verified": true
+    },
+    {
+      "id": 7,
+      "severity": "low",
+      "category": "alignment",
+      "description": "Country Manager unit tests (Country Loader, URL Builder, Selector Loader) were all assigned to `tests/test_platform_detection.py` in the QA section. These test `country_manager.py` functionality, not `platform_config.py`. Also, no `test_country_manager.py` file existed in the Files to Create table.",
+      "location": "QA Acceptance Criteria > Unit Tests (lines 569-571) and Files to Create table",
+      "fix_applied": "Added `tests/test_country_manager.py` to the Files to Create table. Updated QA section to assign Country Loader, URL Builder, and Selector Loader tests to `tests/test_country_manager.py` instead of `tests/test_platform_detection.py`.",
+      "verified": true
+    },
+    {
+      "id": 8,
+      "severity": "low",
+      "category": "alignment",
+      "description": "Research.json recommends using imap-tools IDLE mode (`mailbox.idle.wait(timeout=60)`) for real-time push notifications instead of naive polling for OTP retrieval, reducing latency from 5-30s to near-instant. This was not mentioned in the OTP Email Reader requirement.",
+      "location": "Requirement 9: OTP Email Reader",
+      "fix_applied": "Added implementation note to Requirement 9 specifying use of imap-tools MailBox with IDLE mode for real-time push notifications.",
+      "verified": true
+    },
+    {
+      "id": 9,
+      "severity": "low",
+      "category": "alignment",
+      "description": "Research.json recommends keeping raw requests-based API as fallback for CapSolver (SDK is from July 2023), and specifies AntiTurnstileTaskProxyLess as the task type for Turnstile, and extracting websiteKey from data-sitekey attribute. None of this implementation guidance was in the spec.",
+      "location": "Requirement 10: CAPTCHA Solver (Skeleton)",
+      "fix_applied": "Added implementation note to Requirement 10 specifying: capsolver SDK as primary with raw requests-based API fallback, AntiTurnstileTaskProxyLess task type for Turnstile, and websiteKey extraction from data-sitekey attribute.",
+      "verified": true
+    },
+    {
+      "id": 10,
+      "severity": "low",
+      "category": "consistency",
+      "description": "Implementation Notes DO section said 'Use Camoufox context manager' but with persistent context the correct approach is NewBrowser. Also DON'T section said 'Don't import Playwright directly' but NewBrowser pattern requires `from playwright.sync_api import sync_playwright`.",
+      "location": "Implementation Notes > DO and DON'T sections",
+      "fix_applied": "Updated DO section to specify NewBrowser for persistent context sessions. Updated DON'T section to clarify that `sync_playwright` import IS allowed for the NewBrowser persistent context pattern.",
+      "verified": true
+    }
+  ],
+  "issues_fixed": true,
+  "no_issues_found": false,
+  "critique_summary": "Found 10 issues across the spec (2 HIGH, 4 MEDIUM, 4 LOW). The two HIGH severity issues were: (1) wrong IMAP library name — spec said 'imaplib' but research verified 'imap-tools' as the correct library, and (2) incorrect Camoufox persistent context initialization pattern — spec used `Camoufox()` context manager but Context7 documentation shows `NewBrowser` with `sync_playwright()` is the documented approach for persistent context sessions, which is critical for cf_clearance cookie reuse. MEDIUM issues included missing packages in install commands, missing requirements.txt content, undefined camoufox_config_olustur() function that QA expects to test, and missing .env override logic in platform detection. LOW issues were test file misassignment and unincorporated research recommendations for IDLE mode and CapSolver fallback. All 10 issues have been fixed directly in spec.md.",
+  "confidence_level": "high",
+  "recommendations": [
+    "During implementation, verify NewBrowser persistent context actually persists cf_clearance cookies on first real test — if it doesn't work, fall back to Camoufox() with persistent_context=True as the research originally suggested",
+    "Consider adding a test_otp_reader.py test file — OTP reading is a critical path with no dedicated unit test file",
+    "The humanize parameter could be set to a float (e.g., 2.0) for more realistic cursor movement on slower connections — worth experimenting during testing",
+    "Pin the exact Camoufox version in requirements.txt if maintenance gap causes issues — currently using >=0.4.11 which allows newer (potentially breaking) versions",
+    "CAPTCHA type per country is still unknown — first live recon session on aut/hrv/che should populate this in countries.json before full flow testing"
+  ],
+  "context7_validations": [
+    {
+      "library": "Camoufox",
+      "library_id": "/daijro/camoufox",
+      "claim_validated": "Sync API import: from camoufox.sync_api import Camoufox",
+      "result": "CONFIRMED — Context7 shows exact same import pattern"
+    },
+    {
+      "library": "Camoufox",
+      "library_id": "/daijro/camoufox",
+      "claim_validated": "Persistent context uses Camoufox() context manager with persistent_context=True",
+      "result": "CONTRADICTED — Context7 shows persistent context uses NewBrowser from camoufox.sync_api with sync_playwright(), not the Camoufox() context manager. Spec FIXED to use NewBrowser pattern."
+    },
+    {
+      "library": "imap-tools",
+      "library_id": "/ikvk/imap_tools",
+      "claim_validated": "imap-tools provides MailBox, IDLE mode, query builder for IMAP email reading",
+      "result": "CONFIRMED — Context7 shows MailBox().login() pattern, mailbox.idle.wait(timeout=60), AND() search criteria, message attributes (msg.text, msg.subject, msg.from_, msg.date)"
+    }
+  ],
+  "created_at": "2026-02-26T10:45:00Z"
+}

@@ -1,0 +1,170 @@
+{
+  "session_number": 9,
+  "timestamp": "2026-02-26T08:02:23.313557+00:00",
+  "subtasks_completed": [
+    "subtask-6-1"
+  ],
+  "discoveries": {
+    "file_insights": [
+      {
+        "path": "src/otp_reader.py",
+        "lines": 349,
+        "type": "new_implementation",
+        "primary_class": "OtpOkuyucu",
+        "key_components": [
+          "IMAP SSL connection via imap-tools.MailBox",
+          "IDLE mode for real-time email detection",
+          "Regex-based OTP extraction (4-8 digit patterns)",
+          "Regex-based verification link extraction",
+          "Retry logic with configurable timeouts",
+          "Environment variable credential loading"
+        ],
+        "key_methods": [
+          "baglan() - IMAP connection",
+          "otp_bekle() - Main wait/extract pipeline",
+          "_mevcut_otp_ara() - Fetch existing unread emails",
+          "otp_cikart() - Extract OTP codes",
+          "link_cikart() - Extract verification URLs",
+          "kapat() - Graceful disconnection"
+        ],
+        "language_style": "Turkish naming conventions throughout (OtpOkuyucu, baglan, otp_bekle, gonderen, konu)"
+      }
+    ],
+    "patterns_discovered": [
+      {
+        "pattern": "IDLE-First with Fallback",
+        "description": "Checks for existing unread VFS emails first, then enters IDLE mode for new emails. Falls back to polling with retries if IDLE times out.",
+        "location": "otp_bekle() method, lines 135-175"
+      },
+      {
+        "pattern": "Multi-Pattern Regex Extraction",
+        "description": "Uses priority-ordered regex patterns for OTP (labeled patterns first, then digit patterns) and links (VFS-specific URLs first). Tries multiple patterns until success.",
+        "location": "OTP_KALIPLARI, LINK_KALIPLARI class variables; otp_cikart(), link_cikart() methods"
+      },
+      {
+        "pattern": "Credential Management via Environment",
+        "description": "Loads MAILCOW_HOST, MAILCOW_USER, MAILCOW_PASS, MAILCOW_PORT from .env with defaults and validation warnings.",
+        "location": "__init__() method, lines 65-77"
+      },
+      {
+        "pattern": "Exception-First Error Handling",
+        "description": "Try-except blocks with logging before re-raising. Always logs error type and message for diagnostics.",
+        "location": "baglan(), otp_bekle(), _mevcut_otp_ara(), kapat() methods"
+      },
+      {
+        "pattern": "VFS Email Classification",
+        "description": "Two-tier email filtering: sender patterns (vfsglobal.com, noreply) and subject keywords (verify, otp, do\u011frulama).",
+        "location": "_vfs_emaili_mi() method, VFS_GONDERICI_KALIPLARI class variable"
+      },
+      {
+        "pattern": "Human-Like Retry Delays",
+        "description": "Uses insan_gibi_bekle() utility between IDLE retries (8-12 second random intervals) instead of fixed sleep.",
+        "location": "otp_bekle() method, line 167"
+      }
+    ],
+    "gotchas_discovered": [
+      {
+        "gotcha": "IDLE Returns Empty on Timeout",
+        "description": "MailBox.idle.wait(timeout) returns empty list when timeout expires without new emails. Code must distinguish between 'no updates' and 'connection failure'.",
+        "impact": "Critical for retry logic \u2014 timeout alone doesn't indicate failure, must retry up to max_deneme",
+        "location": "otp_bekle() method, line 152"
+      },
+      {
+        "gotcha": "Both Text and HTML Content Must Be Checked",
+        "description": "Email content can be in msg.text or msg.html or both. Regex patterns may match differently depending on format (HTML entities vs plain text).",
+        "impact": "Medium \u2014 ensures all OTP/link formats are found regardless of email client rendering",
+        "location": "otp_cikart(), link_cikart() methods"
+      },
+      {
+        "gotcha": "URL Trailing Punctuation",
+        "description": "URLs extracted via regex can include trailing punctuation (.,;:!?)'') when followed by text, breaking the URL.",
+        "impact": "Medium \u2014 link_cikart() explicitly strips trailing punctuation, line 313",
+        "location": "link_cikart() method, line 313"
+      },
+      {
+        "gotcha": "OTP Validity Window (60-90 seconds)",
+        "description": "OTP codes are time-limited. The entire pipeline (email receipt \u2192 fetch \u2192 extraction) must complete within ~30 seconds of email arrival.",
+        "impact": "Critical \u2014 timeout=60s IDLE is aggressive; code must extract immediately after email detection",
+        "location": "otp_bekle() docstring, line 114"
+      },
+      {
+        "gotcha": "Connection State Not Self-Healing",
+        "description": "If IMAP connection drops during IDLE, exception is raised and connection remains broken. Caller must handle reconnection.",
+        "impact": "Medium \u2014 requires outer retry/reconnect logic or context manager pattern",
+        "location": "otp_bekle() exception handling, lines 157-162"
+      },
+      {
+        "gotcha": "Empty Email Body",
+        "description": "Some emails may have empty msg.text and msg.html. OTP/link extraction methods gracefully return None, but caller sees no error.",
+        "impact": "Low \u2014 logged warning provided, continues to next email",
+        "location": "otp_cikart(), link_cikart() methods, early returns"
+      }
+    ],
+    "approach_outcome": {
+      "subtask_id": "subtask-6-1",
+      "status": "SUCCESS",
+      "completion_session": 9,
+      "deliverable": "src/otp_reader.py \u2014 349-line Mailcow IMAP OTP reader",
+      "scope_delivered": [
+        "\u2713 IMAP SSL connection via imap-tools.MailBox",
+        "\u2713 Credentials from .env (MAILCOW_HOST/USER/PASS/PORT)",
+        "\u2713 IDLE mode for real-time email detection",
+        "\u2713 OTP code extraction with multi-pattern regex",
+        "\u2713 Verification link extraction with URL cleanup",
+        "\u2713 Retry logic with configurable timeouts",
+        "\u2713 Comprehensive error handling and logging",
+        "\u2713 VFS Global email filtering (sender + subject)",
+        "\u2713 Graceful connection lifecycle management"
+      ],
+      "implementation_strategy": "Single-pass class implementation with full docstrings, Turkish naming conventions, IDLE-first pipeline with fallback to polling, priority-ordered regex patterns"
+    },
+    "recommendations": [
+      {
+        "priority": "High",
+        "category": "Testing",
+        "recommendation": "Add unit test fixtures for simulated VFS emails (various OTP formats, missing OTPs, malformed links) to verify extraction patterns before live deployment"
+      },
+      {
+        "priority": "High",
+        "category": "Robustness",
+        "recommendation": "Wrap otp_bekle() calls in outer retry loop with exponential backoff for IMAP connection drops. Consider context manager for automatic cleanup on exceptions."
+      },
+      {
+        "priority": "Medium",
+        "category": "Performance",
+        "recommendation": "Cache compiled regex patterns (OTP_KALIPLARI, LINK_KALIPLARI) at class level to avoid recompilation per email. Use re.compile() in __init__()."
+      },
+      {
+        "priority": "Medium",
+        "category": "Observability",
+        "recommendation": "Add metrics counters: otp_success, link_success, extraction_failures, idle_timeouts. Track email sender/subject patterns for rate limiting awareness."
+      },
+      {
+        "priority": "Medium",
+        "category": "UX",
+        "recommendation": "Expose IDLE timeout and retry parameters as constructor arguments for flexibility (different use cases may need 30s vs 120s waits)."
+      },
+      {
+        "priority": "Low",
+        "category": "Maintenance",
+        "recommendation": "Document expected OTP formats and VFS email patterns in README. Add example .env template with Mailcow defaults."
+      },
+      {
+        "priority": "Low",
+        "category": "Enhancement",
+        "recommendation": "Consider learning mode: log all OTP patterns found in-the-wild to improve regex patterns over time. Fallback to fuzzy matching if no regex pattern matches."
+      }
+    ],
+    "subtask_id": "subtask-6-1",
+    "session_num": 9,
+    "success": true,
+    "changed_files": [
+      "src/otp_reader.py"
+    ]
+  },
+  "what_worked": [
+    "Implemented subtask: subtask-6-1"
+  ],
+  "what_failed": [],
+  "recommendations_for_next_session": []
+}
